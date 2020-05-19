@@ -36,6 +36,13 @@ Route::middleware(['auth'])->group(function(){
     //Rotas Aplicaçao para usuarios Administradores.........................
     Route::middleware(['admin'])->group(function(){
 
+    //Empresa...............................................................
+    Route::get('/cadastro/empresa', 'EmpresaController@telaCadastro')
+	->name('cadastro_empresa');
+
+
+
+    //......................................................................
 
 
         

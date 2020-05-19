@@ -63,7 +63,7 @@
             </button>
 							
 			<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class= "dropdown-item" href="#"> 
+				<a class= "dropdown-item" href="{{route('cadastro_empresa')}}"> 
 					<i class="icon-user-circle-o"></i>	
 					Empresas														
 				</a>
@@ -143,7 +143,7 @@
 			<div class = "col-xl-1 col-lg-1 col-md-0 col-sm-0 col-0">
 				<!-- coluna vazia esquerda -->
 			</div>
-			<div id="conteudo" class = "col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 mt-2">
+			<div id="conteudo" class = "col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 mt-2 border border-secondary rounded">
 
             @if ($errors->any())
 			<div class="modal fade" id="recado" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
