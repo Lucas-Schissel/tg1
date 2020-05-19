@@ -13,6 +13,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//...........Public Rotas..................................................
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+//...........Private Rotas..................................................
+Route::middleware(['auth'])->group(function(){
+
+    //Rotas Aplicaçao para todos usuarios
+
+    Route::get('/home', 'HomeController@index')->name('home');
+    
+    //......................................................................
+    //Rotas Aplicaçao para usuarios Administradores.........................
+    Route::middleware(['admin'])->group(function(){
+
+
+
+        
+
+
+    });
+    //......................................................................
+});
+
+
+
