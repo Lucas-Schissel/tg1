@@ -1,0 +1,6 @@
+.btn[type=button]{
+    margin-bottom: 5px;
+    margin: 5px;
+    max-width: 120px;  
+    border:1px solid #FFFFFF; 
+}

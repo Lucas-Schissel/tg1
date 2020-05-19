@@ -9,7 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Css -->   
+	<!-- Css -->
+	<link rel="stylesheet" href="{{asset('css/principal.css')}}" type="text/css">   
     <link rel="stylesheet" href="{{asset('css/fontello.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css">
 
@@ -44,7 +45,7 @@
 
 				<div class= "dropdown-divider"></div>
 
-				<a class= "dropdown-item" href="#"> 
+				<a class= "dropdown-item" href="{{route('logout')}}"> 
 					<i class="icon-logout"></i>
 					Logout								
 				</a>
