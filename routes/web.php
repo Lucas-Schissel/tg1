@@ -38,7 +38,12 @@ Route::middleware(['auth'])->group(function(){
 
     //Empresa...............................................................
     Route::get('/cadastro/empresa', 'EmpresaController@telaCadastro')
-	->name('cadastro_empresa');
+    ->name('cadastro_empresa');
+    
+    Route::post('/cadastro/empresa/adicionar', 'EmpresaController@adicionar')
+    ->name('empresa_add');
+
+    
 
 
 
