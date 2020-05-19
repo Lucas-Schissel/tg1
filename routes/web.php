@@ -26,7 +26,11 @@ Route::middleware(['auth'])->group(function(){
 
     //Rotas Aplicaçao para todos usuarios
 
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')
+    ->name('home');
+
+    Route::get('/logout', 'AppController@logout')
+	->name('logout');
     
     //......................................................................
     //Rotas Aplicaçao para usuarios Administradores.........................
