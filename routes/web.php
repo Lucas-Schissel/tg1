@@ -43,8 +43,8 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/empresa/listar', 'EmpresaController@listar')
     ->name('empresa_listar');
 
-    
-
+    Route::get('/empresa/excluir/{id}', 'EmpresaController@excluir')
+	->name('empresa_delete');  
 
 
     //......................................................................
