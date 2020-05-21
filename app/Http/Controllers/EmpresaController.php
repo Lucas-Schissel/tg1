@@ -36,11 +36,13 @@ class EmpresaController extends Controller
 
             if ($emp->save()){
                 session([
-                    'mensagem' =>"Empresa: $nome, foi adicionadoa com sucesso!"
+                    'mensagem' =>"Empresa: $nome, foi adicionada com sucesso!",
+                    's'=>'s'
                 ]);
             } else {
                 session([
-                    'mensagem' =>"Empresa: $nome, nao foi adicionada!!"
+                    'mensagem' =>"Empresa: $nome, nao foi adicionada!",
+                    'f'=>'f'
                 ]);
             }
             

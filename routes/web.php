@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 //...........Public Rotas..................................................
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 //...........Private Rotas..................................................
@@ -30,7 +27,7 @@ Route::middleware(['auth'])->group(function(){
     ->name('home');
 
     Route::get('/logout', 'AppController@logout')
-	->name('logout');
+    ->name('logout');
     
     //......................................................................
     //Rotas Aplicaçao para usuarios Administradores.........................
