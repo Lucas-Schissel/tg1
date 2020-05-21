@@ -49,8 +49,13 @@ class EmpresaController extends Controller
         return view('telas_cadastros.cadastro_empresa');
     }
 
-    function listar(){
+    function listar(Request $req){
+        if ($req->query('busca')){
+            $busca = $req->query('busca');
+            $empresas = Empresa::where('nome', 'LIKE', "%$busca%")->get();
+        }else{
         $empresas = Empresa::All();
+        }
         return view('telas_listas.lista_empresas', [ "emp" => $empresas ]);
     }
 

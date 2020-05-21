@@ -8,6 +8,15 @@
 	</span>
 </div>
 
+<form class="m-3">
+	<div class="row d-flex justify-content-left">
+		<input type="text" name="busca" placeholder="Busca" autocomplete="off" action="">
+		<button class="btn btn-sm btn-secondary" type="submit">
+			<i class="icon-zoom-in"></i>			
+		</button>
+	</div>
+</form>
+
 <div class="table-overflow">
 
 	<table id="tablesorter-imasters" class="table table-bordered table-hover mt-2">
@@ -55,6 +64,19 @@
 
 </div>
 
+<div class= "row">
+    <span class="d-block p-2 bg-dark text-center text-white w-100">    
+            <a class="btn btn-secondary m-1 p-1" type="button2" href="{{ route('home') }}">
+                <i class="icon-left-circled"></i>
+                Voltar		
+            </a>
+            <a class="btn btn-secondary m-1 p-1" type="button2" href="{{ route('empresa_cadastro') }}">
+                <i class="icon-plus-circled"></i>
+                Novo			
+            </a>
+    </span>
+</div>
+
 <div class="modal fade" id="excluir" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -83,20 +105,6 @@
 		$('#excluir').modal('show');
 	});
 </script>
-
-<div class= "row">
-    <span class="d-block p-2 bg-dark text-center text-white w-100">    
-            <a class="btn btn-secondary m-1 p-1" type="button2" href="{{ route('home') }}">
-                <i class="icon-left-circled"></i>
-                Voltar		
-            </a>
-            <a class="btn btn-secondary m-1 p-1" type="button2" href="{{ route('empresa_cadastro') }}">
-                <i class="icon-plus-circled"></i>
-                Novo			
-            </a>
-    </span>
-</div>
-
 
 <!------------------->
 @endsection
