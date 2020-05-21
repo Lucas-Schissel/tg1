@@ -18,6 +18,7 @@
 				<th>CNPJ</th>
                 <th>Telefone</th>
                 <th>Email</th>
+                <th>Operaçoes</th>
 			</tr>
 		</thead>
 		
@@ -29,6 +30,24 @@
             <td>{{ $e->cnpj }}</td>
             <td>{{ $e->telefone }}</td>
             <td>{{ $e->email }}</td>
+            <td>
+
+			 <a class="btn btn-warning mt-1" href="#"> 
+			 Alterar
+			 <i class="icon-arrows-cw"></i>
+			 </a>
+
+			 <a class="delete btn btn-danger m-1" href="#">
+			 Excluir
+			 <i class="icon-trash-empty"></i>
+			 </a>
+
+			 <a class="btn btn-success mt-1" href="#">
+			 Indices
+			 <i class="icon-chart-line"></i>
+			 </a>
+
+			</td>
 		  </tr>
 		@endforeach
 		</tbody>
