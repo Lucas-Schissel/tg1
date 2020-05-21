@@ -18,6 +18,10 @@
 </head>
 <body>
 
+<script src           = "https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src           = "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src           = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 <div class= "container-fluid bg-dark">
 	<div class= "d-flex justify-content-center bg-dark">
 
@@ -168,22 +172,29 @@
 			@if (session()->has('mensagem'))				
 				
 				<div class="modal fade" id="recado" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content">
-						<div class="modal-body alert-info rounded">
-						<div>{{ session('mensagem')}}</div>
-					</div>				
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							@if (session()->has('s'))
+							<div class="modal-body alert-success rounded">
+							{{session()->forget('s')}}
+							@elseif (session()->has('f'))
+							<div class="modal-body alert-danger rounded">
+							{{session()->forget('f')}}
+							@else
+							<div class="modal-body alert-info rounded">
+							@endif	
+								<div>{{ session('mensagem')}}</div>	
+							</div>			
+						</div>
 					</div>
-				</div>
 				</div>
 
 				<script type="text/javascript">
     					$('#recado').modal('show')
-				</script>
+				</script>				
+							
+				{{session()->forget('mensagem')}}
 				
-				{{session()->forget(['mensagem'])}}
-
-
 			@endif
 
 				@yield('conteudo')
@@ -194,13 +205,6 @@
     </div>
     
 </div>
-
-
-<script src           = "https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src           = "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src           = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-
     
 </body>
 </html>
