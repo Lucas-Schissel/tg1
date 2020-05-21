@@ -48,4 +48,9 @@ class EmpresaController extends Controller
             
         return view('telas_cadastros.cadastro_empresa');
     }
+
+    function listar(){
+        $empresas = Empresa::All();
+        return view('telas_listas.lista_empresas', [ "emp" => $empresas ]);
+    }
 }

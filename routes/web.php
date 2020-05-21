@@ -40,6 +40,9 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/empresa/cadastro/adicionar', 'EmpresaController@adicionar')
     ->name('empresa_add');
 
+    Route::get('/empresa/listar', 'EmpresaController@listar')
+    ->name('empresa_listar');
+
     
 
 
