@@ -53,4 +53,24 @@ class EmpresaController extends Controller
         $empresas = Empresa::All();
         return view('telas_listas.lista_empresas', [ "emp" => $empresas ]);
     }
+
+    function excluir($id){
+        
+        $empresa = Empresa::find($id);
+                    
+            if ($empresa->delete()){
+                session([
+                    'mensagem' =>"Empresa: $empresa->nome, foi excluída com sucesso!",
+                    's'=>'s'
+                ]);
+            
+            } else {
+                session([
+                    'mensagem' =>"Empresa: $empresa->nome, nao foi excluída!",
+                    'f'=>'f'
+                ]);
+            }
+
+        return EmpresaController::listar();
+    }
 }
