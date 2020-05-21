@@ -34,10 +34,10 @@ Route::middleware(['auth'])->group(function(){
     Route::middleware(['admin'])->group(function(){
 
     //Empresa...............................................................
-    Route::get('/cadastro/empresa', 'EmpresaController@telaCadastro')
-    ->name('cadastro_empresa');
+    Route::get('/empresa/cadastro', 'EmpresaController@telaCadastro')
+    ->name('empresa_cadastro');
     
-    Route::post('/cadastro/empresa/adicionar', 'EmpresaController@adicionar')
+    Route::post('/empresa/cadastro/adicionar', 'EmpresaController@adicionar')
     ->name('empresa_add');
 
     

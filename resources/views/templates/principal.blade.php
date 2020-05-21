@@ -67,7 +67,7 @@
             </button>
 							
 			<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class= "dropdown-item" href="{{route('cadastro_empresa')}}"> 
+				<a class= "dropdown-item" href="{{route('empresa_cadastro')}}"> 
 					<i class="icon-user-circle-o"></i>	
 					Empresas														
 				</a>
