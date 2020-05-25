@@ -8,14 +8,30 @@
 	</span>
 </div>
 
-<form class="m-3">
-	<div class="row d-flex justify-content-left">
-		<input type="text" name="busca" placeholder="Busca" autocomplete="off" action="">
-		<button class="btn btn-sm btn-secondary" type="submit">
-			<i class="icon-zoom-in"></i>			
+<div class="row d-flex justify-content-left">
+	<div class = "col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 d-flex justify-content-left mt-1">
+		<form style="min-width:100%;" method="get" class="d-flex justify-content-center" action="{{ route('empresa_buscar') }}">
+			<input class="form-control m-1" type="text" name="busca" placeholder="Busca" autocomplete="off">
+			<button class="btn btn-secondary m-1" type="submit">
+				<i class="icon-zoom-in"></i>			
+			</button>
+		</form>
+	</div>
+
+	<div class = "col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 d-flex justify-content-center mt-1">	
+		<select id="dados" class="btn btn-secondary btn-block m-1">			
+			<option value="nome">Nome</option>
+			<option value="cnpj">CNPJ</option>
+			<option value="email">Email</option>
+		</select>
+		<button class="filtro btn btn-secondary m-1" data-id="asc">              
+			<i class="icon-sort-name-up"></i>	
+		</button>
+		<button class="filtro btn btn-secondary m-1" data-id="desc">              
+			<i class="icon-sort-name-down"></i>	
 		</button>
 	</div>
-</form>
+</div>
 
 <div class="table-overflow">
 
@@ -46,7 +62,7 @@
 			 <i class="icon-arrows-cw"></i>
 			 </a>
 
-			 <a class="delete btn btn-danger m-1" data-nome="{{ $e->nome}}" data-id="{{ $e->id}}">
+			 <a class="delete btn btn-danger mt-1" data-nome="{{ $e->nome}}" data-id="{{ $e->id}}">
 			 Excluir
 			 <i class="icon-trash-empty"></i>
 			 </a>
@@ -106,5 +122,13 @@
 	});
 </script>
 
+<script>
+	$('.filtro').on('click', function(){
+		var select = document.getElementById('dados');
+		var value = select.options[select.selectedIndex].value;
+		var id = $(this).data('id');
+		$(location).attr('href', '/empresa/ordenar/'+ id + '/' + value);		
+	});
+</script>
 <!------------------->
 @endsection
