@@ -8,6 +8,31 @@
 	</span>
 </div>
 
+<div class="row d-flex justify-content-left">
+	<div class = "col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 d-flex justify-content-left mt-1">
+		<form style="min-width:100%;" method="get" class="d-flex justify-content-center" action="{{ route('empresa_buscar') }}">
+			<input class="form-control m-1" type="text" name="busca" placeholder="Busca" autocomplete="off">
+			<button class="btn btn-secondary m-1" type="submit">
+				<i class="icon-zoom-in"></i>			
+			</button>
+		</form>
+	</div>
+
+	<div class = "col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 d-flex justify-content-center mt-1">	
+		<select id="dados" class="btn btn-secondary btn-block m-1">			
+			<option value="nome">Nome</option>
+			<option value="cnpj">CNPJ</option>
+			<option value="email">Email</option>
+		</select>
+		<button class="filtro btn btn-secondary m-1" data-id="asc">              
+			<i class="icon-sort-name-up"></i>	
+		</button>
+		<button class="filtro btn btn-secondary m-1" data-id="desc">              
+			<i class="icon-sort-name-down"></i>	
+		</button>
+	</div>
+</div>
+
 <div class="table-overflow">
 
 	<table id="tablesorter-imasters" class="table table-bordered table-hover mt-2">
@@ -37,7 +62,7 @@
 			 <i class="icon-arrows-cw"></i>
 			 </a>
 
-			 <a class="delete btn btn-danger m-1" data-nome="{{ $e->nome}}" data-id="{{ $e->id}}">
+			 <a class="delete btn btn-danger mt-1" data-nome="{{ $e->nome}}" data-id="{{ $e->id}}">
 			 Excluir
 			 <i class="icon-trash-empty"></i>
 			 </a>
@@ -53,6 +78,19 @@
 		</tbody>
 	</table>
 
+</div>
+
+<div class= "row">
+    <span class="d-block p-2 bg-dark text-center text-white w-100">    
+            <a class="btn btn-secondary m-1 p-1" type="button2" href="{{ route('home') }}">
+                <i class="icon-left-circled"></i>
+                Voltar		
+            </a>
+            <a class="btn btn-secondary m-1 p-1" type="button2" href="{{ route('empresa_cadastro') }}">
+                <i class="icon-plus-circled"></i>
+                Novo			
+            </a>
+    </span>
 </div>
 
 <div class="modal fade" id="excluir" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -84,19 +122,13 @@
 	});
 </script>
 
-<div class= "row">
-    <span class="d-block p-2 bg-dark text-center text-white w-100">    
-            <a class="btn btn-secondary m-1 p-1" type="button2" href="{{ route('home') }}">
-                <i class="icon-left-circled"></i>
-                Voltar		
-            </a>
-            <a class="btn btn-secondary m-1 p-1" type="button2" href="{{ route('empresa_cadastro') }}">
-                <i class="icon-plus-circled"></i>
-                Novo			
-            </a>
-    </span>
-</div>
-
-
+<script>
+	$('.filtro').on('click', function(){
+		var select = document.getElementById('dados');
+		var value = select.options[select.selectedIndex].value;
+		var id = $(this).data('id');
+		$(location).attr('href', '/empresa/ordenar/'+ id + '/' + value);		
+	});
+</script>
 <!------------------->
 @endsection
