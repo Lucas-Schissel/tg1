@@ -40,8 +40,17 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/empresa/cadastro/adicionar', 'EmpresaController@adicionar')
     ->name('empresa_add');
 
+    Route::get('/empresa/mostrar', 'EmpresaController@mostrar')
+    ->name('empresa_mostrar');
+
     Route::get('/empresa/listar', 'EmpresaController@listar')
     ->name('empresa_listar');
+
+    Route::get('/empresa/buscar', 'EmpresaController@buscar')
+    ->name('empresa_buscar');
+
+    Route::get('/empresa/ordenar/{id}/{nome}', 'EmpresaController@ordenar')
+    ->name('empresa_ordenar');
 
     Route::get('/empresa/excluir/{id}', 'EmpresaController@excluir')
 	->name('empresa_delete');  
