@@ -49,14 +49,35 @@ class EmpresaController extends Controller
         return view('telas_cadastros.cadastro_empresa');
     }
 
-    function listar(Request $req){
-        if ($req->query('busca')){
-            $busca = $req->query('busca');
+    function ordenar($id,$nome){
+        $dados = collect(session('dados')); 
+        if($id == 'asc'){
+            $empresas = $dados->sortBy($nome);
+        }elseif($id == 'desc'){
+            $empresas = $dados->sortByDesc($nome);
+        }          
+        return EmpresaController::mostrar($empresas);  
+    }
+
+    function buscar(Request $req){
+        $busca = $req->input('busca');
+        if(isset($busca)){
             $empresas = Empresa::where('nome', 'LIKE', "%$busca%")->get();
+            return EmpresaController::mostrar($empresas);        
         }else{
+            return EmpresaController::listar();
+        }              
+    }
+
+    function mostrar($array){
+        $empresas = $array;
+        session(['dados' => $empresas]);
+        return view('telas_listas.lista_empresas', [ "emp" => $empresas]);
+    }
+
+    function listar(){        
         $empresas = Empresa::All();
-        }
-        return view('telas_listas.lista_empresas', [ "emp" => $empresas ]);
+        return EmpresaController::mostrar($empresas);
     }
 
     function excluir($id){
