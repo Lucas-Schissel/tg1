@@ -143,11 +143,9 @@
 </div>
 
 
-    <div class = "row" id="conteudo">
-			<div class = "col-xl-1 col-lg-1 col-md-0 col-sm-0 col-0">
-				<!-- coluna vazia esquerda -->
-			</div>
-			<div id="conteudo" class = "col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 mt-2 border border-secondary rounded">
+    <div class="container-fluid">
+		<div class="row d-flex m-2 border border-secondary rounded">
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
             @if ($errors->any())
 			<div class="modal fade" id="recado" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -198,12 +196,11 @@
 			@endif
 
 				@yield('conteudo')
+
 			</div>
-			<div class = "col-xl-1 col-lg-1 col-md-0 col-sm-0 col-0">
-				<!-- coluna vazia direita -->
-			</div>
-    </div>
-    
+		</div>
+	</div>
+	
 </div>
     
 </body>
