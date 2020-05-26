@@ -22,7 +22,7 @@
 <script src           = "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src           = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-<div class= "container-fluid bg-dark">
+<div class= "cabecalho container-fluid bg-dark">
 	<div class= "d-flex justify-content-center bg-dark">
 
 		<div class= "dropdown">
@@ -143,11 +143,9 @@
 </div>
 
 
-    <div class = "row" id="conteudo">
-			<div class = "col-xl-1 col-lg-1 col-md-0 col-sm-0 col-0">
-				<!-- coluna vazia esquerda -->
-			</div>
-			<div id="conteudo" class = "col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 mt-2 border border-secondary rounded">
+    <div class="container-fluid">
+		<div class="row d-flex m-2 border border-secondary rounded">
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
             @if ($errors->any())
 			<div class="modal fade" id="recado" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -198,12 +196,11 @@
 			@endif
 
 				@yield('conteudo')
+
 			</div>
-			<div class = "col-xl-1 col-lg-1 col-md-0 col-sm-0 col-0">
-				<!-- coluna vazia direita -->
-			</div>
-    </div>
-    
+		</div>
+	</div>
+	
 </div>
     
 </body>

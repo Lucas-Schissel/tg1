@@ -4,3 +4,38 @@
     max-width: 120px;  
     border:1px solid #FFFFFF; 
 }
+
+.cabecalho{
+    box-shadow: 2px 2px 3px 0px rgba(0,0,0,1);
+}
+
+@media(max-width:576px){
+    .t-cnpj{
+        display: none;
+    }
+    .t-fone{
+        display: none;
+    }
+    .t-email{
+        display: none;
+    }
+    
+}
+@media(max-width:768px){
+    .t-cnpj{
+        display: none;
+    }
+    .t-email{
+        display: none;
+    }
+    
+}
+@media(max-width:992px){
+    .t-cnpj{
+        display: none;
+    }
+    
+}
+@media(max-width:1200px){
+    
+}
