@@ -4,7 +4,7 @@
 
 <div class= "row">
 	<span class="d-block p-2 bg-dark text-center text-white w-100">
-		<h1>Lista de Empresas</h1>
+		<h3>Lista de Empresas</h3>
 	</span>
 </div>
 
@@ -35,7 +35,7 @@
 
 <div class="table-overflow">
 
-	<table id="tablesorter-imasters" class="table table-bordered table-hover mt-2">
+	<table class="overflow-auto table table-bordered table-hover mt-2">
 		<thead class="thead-dark">
 			<tr>
 				<th>ID</th>
@@ -55,21 +55,27 @@
             <td>{{ $e->cnpj }}</td>
             <td>{{ $e->telefone }}</td>
             <td>{{ $e->email }}</td>
-            <td>
+            <td class="d-flex justify-content-center text text-white">
 
-			 <a class="btn btn-warning mt-1" href="#"> 
-			 Alterar
-			 <i class="icon-arrows-cw"></i>
+			 <a class="btn btn-warning m-1" href="#"> 
+			 	<div class="d-flex">                
+                    <span class="d-none d-md-block ">Alterar&nbsp;</span>
+                    <i class="icon-arrows-cw"></i>
+                </div> 
 			 </a>
 
-			 <a class="delete btn btn-danger mt-1" data-nome="{{ $e->nome}}" data-id="{{ $e->id}}">
-			 Excluir
-			 <i class="icon-trash-empty"></i>
+			 <a class="delete btn btn-danger m-1" data-nome="{{ $e->nome}}" data-id="{{ $e->id}}">
+			 	<div class="d-flex">                
+                    <span class="d-none d-md-block ">Excluir&nbsp;</span>
+					<i class="icon-trash-empty"></i>
+                </div> 			 
 			 </a>
 
-			 <a class="btn btn-success mt-1" href="#">
-			 Indices
-			 <i class="icon-chart-line"></i>
+			 <a class="btn btn-success m-1" href="#">
+			 	<div class="d-flex">                
+                    <span class="d-none d-md-block ">Indices&nbsp;</span>
+					<i class="icon-chart-line"></i>
+                </div> 				
 			 </a>
 
 			</td>
