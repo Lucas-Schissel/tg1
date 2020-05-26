@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function(){
     Route::middleware(['admin'])->group(function(){
 
     //Empresa...............................................................
+
     Route::get('/empresa/cadastro', 'EmpresaController@telaCadastro')
     ->name('empresa_cadastro');
     
@@ -56,11 +57,31 @@ Route::middleware(['auth'])->group(function(){
 	->name('empresa_delete');  
 
 
+    //Planos................................................................
+
+    Route::get('/planos/cadastro', 'planosController@telaCadastro')
+    ->name('planos_cadastro');
+    
+    Route::post('/planos/cadastro/adicionar', 'PlanosController@adicionar')
+    ->name('planos_add');
+
+    Route::get('/planos/mostrar', 'PlanosController@mostrar')
+    ->name('planos_mostrar');
+
+    Route::get('/planos/listar', 'PlanosController@listar')
+    ->name('planos_listar');
+
+    Route::get('/planos/buscar', 'PlanosController@buscar')
+    ->name('planos_buscar');
+
+    Route::get('/planos/ordenar/{id}/{nome}', 'PlanosController@ordenar')
+    ->name('planos_ordenar');
+
+    Route::get('/planos/excluir/{id}', 'PlanosController@excluir')
+    ->name('planos_delete');       
+    
     //......................................................................
-
-
-        
-
+    
 
     });
     //......................................................................
