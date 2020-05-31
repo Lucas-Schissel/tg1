@@ -11,29 +11,31 @@
 
 @media(max-width:576px){
     .t-cnpj{
-        display: none;
+        display: none !important;
     }
     .t-fone{
-        display: none;
+        display: none !important;
     }
     .t-email{
-        display: none;
+        display: none !important;
     }
     
 }
 @media(max-width:768px){
     .t-cnpj{
-        display: none;
+        display: none !important;
     }
     .t-email{
-        display: none;
-    }
-    
+        display: none !important;
+    }    
 }
 @media(max-width:992px){
     .t-cnpj{
-        display: none;
+        display: none !important;
     }
+    .t-descricao{
+        display: none !important;
+    }   
     
 }
 @media(max-width:1200px){
@@ -49,5 +51,14 @@
 
 #t-atualizacao > .input-group > .input-group-prepend > span {
     width: 85px;
+}
+
+.tabela {
+    height: 70vh;
+}
+
+.table > tbody > tr > td{
+    display: table-cell;
+    vertical-align: middle;
 }
 
