@@ -11,6 +11,11 @@ class EmpresaController extends Controller
         return view('telas_cadastros.cadastro_empresa');
     }
 
+    function telaAlteracao($id){
+            $empresa = Empresa::find($id);
+            return view("telas_updates.atualiza_empresa", [ "emp" => $empresa ]);
+    }
+
     function adicionar(Request $req){
 
         $req->validate([
@@ -49,6 +54,44 @@ class EmpresaController extends Controller
         return view('telas_cadastros.cadastro_empresa');
     }
 
+    function alterar(Request $req , $id){
+
+        $req->validate([
+            'nome' => 'required|unique:empresas,nome',
+            'cnpj' => 'required|unique:empresas,cnpj',
+            'telefone' => 'required|unique:empresas,telefone',
+            'email' => 'required|unique:empresas,email',
+            'senha' => 'required',
+        ]);
+
+        $nome = $req->input('nome');
+        $cnpj = $req->input('cnpj');
+        $telefone = $req->input('telefone');
+    	$email = $req->input('email');
+        $senha = $req->input('senha');
+
+            $emp = Empresa::find($id);
+            $emp->nome = $nome;
+            $emp->cnpj = $cnpj;
+            $emp->telefone = $telefone;
+            $emp->email = $email;
+            $emp->senha = $senha;
+
+            if ($emp->save()){
+                session([
+                    'mensagem' =>"Empresa: $nome, alterada com sucesso!",
+                    's'=>'s'
+                ]);
+            } else {
+                session([
+                    'mensagem' =>"Empresa: $nome, nao foi alterada!",
+                    'f'=>'f'
+                ]);
+            }
+            
+        return redirect()->route('empresa_listar');
+    }
+
     function ordenar($id,$nome){
         $dados = collect(session('dados')); 
         if($id == 'asc'){
@@ -76,14 +119,12 @@ class EmpresaController extends Controller
     }
 
     function listar(){        
-        $empresas = Empresa::All();
+        $empresas = Empresa::all(); 
         return EmpresaController::mostrar($empresas);
     }
 
-    function excluir($id){
-        
-        $empresa = Empresa::find($id);
-                    
+    function excluir($id){        
+        $empresa = Empresa::find($id);                    
             if ($empresa->delete()){
                 session([
                     'mensagem' =>"Empresa: $empresa->nome, foi excluída com sucesso!",
@@ -96,7 +137,6 @@ class EmpresaController extends Controller
                     'f'=>'f'
                 ]);
             }
-
         return EmpresaController::listar();
     }
 }

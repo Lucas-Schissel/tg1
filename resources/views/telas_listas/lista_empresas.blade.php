@@ -68,7 +68,7 @@
             <td class="t-email">{{ $e->email }}</td>
             <td class="d-flex justify-content-center text text-white">
 
-			 <a class="btn btn-warning m-1" href="#"> 
+			 <a class="btn btn-warning m-1" href="{{route('empresa_update', [ 'id' => $e->id ])}}"> 
 			 	<div class="d-flex">                
                     <span class="d-none d-lg-block ">Alterar&nbsp;</span>
                     <i class="icon-arrows-cw"></i>
