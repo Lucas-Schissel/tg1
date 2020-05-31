@@ -11,7 +11,7 @@
 	</span>
 </div>
 
-<form method="post" action="{{ route('empresa_add') }}">
+<form method="post" action="{{ route('empresa_alterar' , ['id' => $emp->id]) }}">
 @csrf
 
 <div id="t-atualizacao" class="container-fluid border border-secondary rounded mt-1 p-1">    	
@@ -39,7 +39,7 @@
             <span class="input-group-text bg-secondary text-white" id="basic-addon1">
             Telefone:</span>
         </div>
-        <input class="form-control" type="text"  name="cnpj" placeholder="Digite um telefone..." 
+        <input class="form-control" type="text"  name="telefone" placeholder="Digite um telefone..." 
         value="{{ $emp->telefone}}" required>
     </div>
 
