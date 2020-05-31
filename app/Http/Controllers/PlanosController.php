@@ -43,4 +43,35 @@ class PlanosController extends Controller
             
         return view('telas_cadastros.cadastro_plano');
     }
+
+    function ordenar($id,$nome){
+        $dados = collect(session('dados')); 
+        if($id == 'asc'){
+            $planos = $dados->sortBy($nome);
+        }elseif($id == 'desc'){
+            $planos = $dados->sortByDesc($nome);
+        }          
+        return PlanosController::mostrar($planos);  
+    }
+
+    function buscar(Request $req){
+        $busca = $req->input('busca');
+        if(isset($busca)){
+            $planos = Planos::where('nome', 'LIKE', "%$busca%")->get();
+            return PlanosController::mostrar($planos);        
+        }else{
+            return PlanosController::listar();
+        }              
+    }
+
+    private static function mostrar($array){
+        $planos = $array;
+        session()->flash('dados',$planos);
+        return view('telas_listas.lista_planos', [ "pla" => $planos]);
+    }
+
+    static function listar(){        
+        $planos = Planos::all(); 
+        return Planoscontroller::mostrar($planos);
+    }
 }

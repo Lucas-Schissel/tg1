@@ -4,7 +4,7 @@
 
 <div class= "row">
 	<span class="d-block p-2 bg-dark text-center text-white w-100">
-		<h5>Lista de Planos</h5>
+		<h3>Lista de Planos</h3>
 	</span>
 </div>
 
@@ -21,7 +21,7 @@
 	<div class = "col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 d-flex justify-content-center mt-1">	
 		<select id="dados" class="btn btn-secondary btn-block m-1">			
 			<option value="nome">Nome</option>
-			<option value="cnpj">Preco</option>
+			<option value="valor">Preco</option>
 		</select>
 		<button class="filtro btn btn-secondary m-1" data-id="asc">              
 			<i class="icon-sort-name-up"></i>	
@@ -115,12 +115,10 @@
 
 <script>
 	$('.dados').on('click', function(){
-		var descricao = $(this).data('descricao');
 		var valor = $(this).data('valor');
 		var nome = $(this).data('nome');
 		$('span.nome').text(nome); 
 		$('span.valor').text(valor); 
-		$('span.descricao').text(descricao); 
 		$('#modal-dados').modal('show');
 	});
 </script>
