@@ -74,6 +74,9 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/planos/alterar/{id}', 'PlanosController@telaAlteracao')
     ->name('planos_update');
 
+    Route::post('/planos/alterar/{id}', 'PlanosController@alterar')
+	->name('planos_alterar');
+
     Route::get('/planos/mostrar', 'PlanosController@mostrar')
     ->name('planos_mostrar');
 

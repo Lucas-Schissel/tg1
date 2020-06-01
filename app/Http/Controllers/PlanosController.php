@@ -11,6 +11,11 @@ class PlanosController extends Controller
         return view('telas_cadastros.cadastro_plano');
     }
 
+    function telaAlteracao($id){
+        $plano = Planos::find($id);
+        return view("telas_updates.atualiza_plano", [ "pla" => $plano ]);
+}
+
     function adicionar(Request $req){
 
         $req->validate([
