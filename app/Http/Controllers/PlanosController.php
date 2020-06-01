@@ -74,4 +74,21 @@ class PlanosController extends Controller
         $planos = Planos::all(); 
         return PlanosController::mostrar($planos);
     }
+
+    function excluir($id){        
+        $plano = Planos::find($id);                    
+            if ($plano->delete()){
+                session([
+                    'mensagem' =>"Plano: $plano->nome, foi excluído com sucesso!",
+                    's'=>'s'
+                ]);
+            
+            } else {
+                session([
+                    'mensagem' =>"Plano: $plano->nome, nao foi excluído!",
+                    'f'=>'f'
+                ]);
+            }
+        return redirect()->route('planos_listar');
+    }
 }
