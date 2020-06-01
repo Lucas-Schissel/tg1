@@ -64,14 +64,14 @@ class PlanosController extends Controller
         }              
     }
 
-    private static function mostrar($array){
+    function mostrar($array){
         $planos = $array;
         session()->flash('dados',$planos);
         return view('telas_listas.lista_planos', [ "pla" => $planos]);
     }
 
-    static function listar(){        
+    function listar(){        
         $planos = Planos::all(); 
-        return Planoscontroller::mostrar($planos);
+        return PlanosController::mostrar($planos);
     }
 }

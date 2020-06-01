@@ -112,7 +112,7 @@ class EmpresaController extends Controller
         }              
     }
 
-    function mostrar($array){
+    static function mostrar($array){
         $empresas = $array;
         session()->flash('dados',$empresas);
         return view('telas_listas.lista_empresas', [ "emp" => $empresas]);

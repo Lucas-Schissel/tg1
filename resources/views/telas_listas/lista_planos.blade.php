@@ -92,7 +92,7 @@
                 <i class="icon-left-circled"></i>
                 Voltar		
             </a>
-            <a class="btn btn-secondary m-1 p-1" type="button2" href="{{ route('empresa_cadastro') }}">
+            <a class="btn btn-secondary m-1 p-1" type="button2" href="{{ route('planos_cadastro') }}">
                 <i class="icon-plus-circled"></i>
                 Novo			
             </a>
