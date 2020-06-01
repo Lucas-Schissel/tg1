@@ -52,7 +52,7 @@ class PlanosController extends Controller
     function alterar(Request $req , $id){
 
         $req->validate([
-            'nome' => 'required|unique:planos,nome',
+            'nome' => 'required',
             'valor' => 'required|numeric',
         ]);
 
