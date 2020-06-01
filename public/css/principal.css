@@ -1,0 +1,64 @@
+.btn[type=button]{
+    margin-bottom: 5px;
+    margin: 5px;
+    max-width: 120px;  
+    border:1px solid #FFFFFF; 
+}
+
+.cabecalho{
+    box-shadow: 2px 2px 3px 0px rgba(0,0,0,1);
+}
+
+@media(max-width:576px){
+    .t-cnpj{
+        display: none !important;
+    }
+    .t-fone{
+        display: none !important;
+    }
+    .t-email{
+        display: none !important;
+    }
+    
+}
+@media(max-width:768px){
+    .t-cnpj{
+        display: none !important;
+    }
+    .t-email{
+        display: none !important;
+    }    
+}
+@media(max-width:992px){
+    .t-cnpj{
+        display: none !important;
+    }
+    .t-descricao{
+        display: none !important;
+    }   
+    
+}
+@media(max-width:1200px){
+    
+}
+
+#t-atualizacao{
+    max-width: 90%;
+    min-height: 80%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#t-atualizacao > .input-group > .input-group-prepend > span {
+    width: 85px;
+}
+
+.tabela {
+    height: 60vh;
+}
+
+.table > tbody > tr > td{
+    display: table-cell;
+    vertical-align: middle;
+}
+
