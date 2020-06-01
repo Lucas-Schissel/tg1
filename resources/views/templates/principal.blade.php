@@ -113,7 +113,7 @@
 
                 <div class= "dropdown-divider"></div>
 
-				<a class= "dropdown-item" href="#"> 
+				<a class= "dropdown-item" href="{{route('planos_listar')}}"> 
 					<i class="icon-tags"></i>
 					Planos								
 				</a>
