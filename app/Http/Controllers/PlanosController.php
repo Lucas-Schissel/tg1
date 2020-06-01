@@ -11,6 +11,11 @@ class PlanosController extends Controller
         return view('telas_cadastros.cadastro_plano');
     }
 
+    function telaAlteracao($id){
+        $plano = Planos::find($id);
+        return view("telas_updates.atualiza_plano", [ "pla" => $plano ]);
+}
+
     function adicionar(Request $req){
 
         $req->validate([
@@ -42,6 +47,37 @@ class PlanosController extends Controller
             }
             
         return view('telas_cadastros.cadastro_plano');
+    }
+
+    function alterar(Request $req , $id){
+
+        $req->validate([
+            'nome' => 'required',
+            'valor' => 'required|numeric',
+        ]);
+
+        $nome = $req->input('nome');
+        $descricao = $req->input('descricao');
+        $valor = $req->input('valor');
+
+            $pla = Planos::find($id);
+            $pla->nome = $nome;
+            $pla->descricao = $descricao;
+            $pla->valor = $valor;
+
+            if ($pla->save()){
+                session([
+                    'mensagem' =>"Plano: $nome, alterado com sucesso!",
+                    's'=>'s'
+                ]);
+            } else {
+                session([
+                    'mensagem' =>"Plano: $nome, nao foi alterado!",
+                    'f'=>'f'
+                ]);
+            }
+            
+        return redirect()->route('planos_listar');
     }
 
     function ordenar($id,$nome){
