@@ -74,10 +74,16 @@
 
 				<div class= "dropdown-divider"></div>
 
-
 				<a class= "dropdown-item" href="{{route('empresa_cadastro')}}"> 
 					<i class="icon-user-circle-o"></i>	
 					Empresas														
+				</a>
+
+				<div class= "dropdown-divider"></div>
+
+				<a class= "dropdown-item" href="{{route('estado_cadastro')}}"> 
+					<i class="icon-user-circle-o"></i>	
+					Estados														
 				</a>
 
 				<div class= "dropdown-divider"></div>
