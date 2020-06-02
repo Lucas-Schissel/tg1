@@ -11,4 +11,8 @@ class Cidade extends Model
 
     protected $table = 'cidades';
     protected $primaryKey = 'id';
+
+    function estados(){
+    	return $this->belongsTo('App\Estado', 'id_estado', 'id');
+    }
 }
