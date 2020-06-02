@@ -120,6 +120,35 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/cidade/excluir/{id}', 'CidadeController@excluir')
     ->name('cidade_delete'); 
+
+     //Estado................................................................
+
+     Route::get('/estado/cadastro', 'EstadoController@telaCadastro')
+     ->name('estado_cadastro');
+     
+     Route::post('/estado/cadastro/adicionar', 'EstadoController@adicionar')
+     ->name('estado_add');
+ 
+     Route::get('/estado/alterar/{id}', 'EstadoController@telaAlteracao')
+     ->name('estado_update');
+ 
+     Route::post('/estado/alterar/{id}', 'EstadoController@alterar')
+     ->name('estado_alterar');
+ 
+     Route::get('/estado/mostrar', 'EstadoController@mostrar')
+     ->name('estado_mostrar');
+ 
+     Route::get('/estado/listar', 'EstadoController@listar')
+     ->name('estado_listar');
+ 
+     Route::get('/estado/buscar', 'EstadoController@buscar')
+     ->name('estado_buscar');
+ 
+     Route::get('/estado/ordenar/{id}/{nome}', 'EstadoController@ordenar')
+     ->name('estado_ordenar');
+ 
+     Route::get('/estado/excluir/{id}', 'EstadoController@excluir')
+     ->name('estado_delete');
     
     //......................................................................
     
