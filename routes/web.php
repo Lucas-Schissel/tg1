@@ -94,6 +94,15 @@ Route::middleware(['auth'])->group(function(){
     
     //......................................................................
     
+    //Motoboy...............................................................
+    Route::get('/motoboy/cadastro', 'MotoboyController@telaCadastro')
+    ->name('motoboy_cadastro');
+
+    Route::post('/motoboy/cadastro/adicionar', 'MotoboyController@adicionar')
+    ->name('motoboy_add');
+
+
+    //......................................................................
 
     });
     //......................................................................
