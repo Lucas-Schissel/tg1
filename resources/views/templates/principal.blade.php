@@ -67,6 +67,13 @@
             </button>
 							
 			<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<a class= "dropdown-item" href="{{route('cidade_cadastro')}}"> 
+					<i class="icon-user-circle-o"></i>	
+					Cidades														
+				</a>
+
+				<div class= "dropdown-divider"></div>
+
 				<a class= "dropdown-item" href="{{route('empresa_cadastro')}}"> 
 					<i class="icon-user-circle-o"></i>	
 					Empresas														
@@ -74,19 +81,26 @@
 
 				<div class= "dropdown-divider"></div>
 
+				<a class= "dropdown-item" href="{{route('estado_cadastro')}}"> 
+					<i class="icon-user-circle-o"></i>	
+					Estados														
+				</a>
+
+				<div class= "dropdown-divider"></div>
+		
 				<a class= "dropdown-item" href="{{route('motoboy_cadastro')}}"> 
 					<i class="icon-tags"></i>
 					Motoboy								
 				</a>
 
-                <div class= "dropdown-divider"></div>
+        <div class= "dropdown-divider"></div>
 
 				<a class= "dropdown-item" href="{{route('planos_cadastro')}}"> 
 					<i class="icon-tags"></i>
 					Planos								
-				</a>					
+				</a>
+        
 			</div>
-
 		</div>
 					
 		<div class="dropdown">
