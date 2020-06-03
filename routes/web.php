@@ -152,31 +152,31 @@ Route::middleware(['auth'])->group(function(){
 
     //Status................................................................
 
-     Route::get('/status/cadastro', 'StatusEntrega@telaCadastro')
+     Route::get('/status/cadastro', 'StatusEntregaController@telaCadastro')
      ->name('status_cadastro');
      
-     Route::post('/status/cadastro/adicionar', 'StatusEntrega@adicionar')
+     Route::post('/status/cadastro/adicionar', 'StatusEntregaController@adicionar')
      ->name('status_add');
  
-     Route::get('/status/alterar/{id}', 'StatusEntrega@telaAlteracao')
+     Route::get('/status/alterar/{id}', 'StatusEntregaController@telaAlteracao')
      ->name('status_update');
  
-     Route::post('/status/alterar/{id}', 'StatusEntrega@alterar')
+     Route::post('/status/alterar/{id}', 'StatusEntregaController@alterar')
      ->name('status_alterar');
  
-     Route::get('/status/mostrar', 'StatusEntrega@mostrar')
+     Route::get('/status/mostrar', 'StatusEntregaController@mostrar')
      ->name('status_mostrar');
  
-     Route::get('/status/listar', 'StatusEntrega@listar')
+     Route::get('/status/listar', 'StatusEntregaController@listar')
      ->name('status_listar');
  
-     Route::get('/status/buscar', 'StatusEntrega@buscar')
+     Route::get('/status/buscar', 'StatusEntregaController@buscar')
      ->name('status_buscar');
  
-     Route::get('/status/ordenar/{id}/{nome}', 'StatusEntrega@ordenar')
+     Route::get('/status/ordenar/{id}/{nome}', 'StatusEntregaController@ordenar')
      ->name('status_ordenar');
  
-     Route::get('/status/excluir/{id}', 'StatusEntrega@excluir')
+     Route::get('/status/excluir/{id}', 'StatusEntregaController@excluir')
      ->name('status_delete');
     
     
