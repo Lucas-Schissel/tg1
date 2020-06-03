@@ -28,6 +28,22 @@
     .t-regiao{
         display: none !important;
     }
+    .t-motoboy{
+        display: none !important;
+    }
+    .t-empresa{
+        display: none !important;
+    }
+    .t-cep{
+        display: none !important;
+    }
+
+    .t-cpf{
+        display: none !important;
+    }
+    .t-telefone{
+        display: none !important;
+    }
     
 }
 @media(max-width:768px){
@@ -43,6 +59,15 @@
     .t-regiao{
         display: none !important;
     }
+    .t-motoboy{
+        display: none !important;
+    }
+    .t-empresa{
+        display: none !important;
+    }
+    .t-telefone{
+        display: none !important;
+    }
 }
 @media(max-width:992px){
     .t-cnpj{
@@ -52,6 +77,9 @@
         display: none !important;
     }   
     .t-regiao{
+        display: none !important;
+    }
+    .t-motoboy{
         display: none !important;
     }
     

@@ -21,7 +21,7 @@
 		<select id="dados" class="btn btn-secondary btn-block m-1">			
 			<option value="cod_pedido">Cod Pedido</option>
 			<option value="empresa">Empresa</option>
-			<option value="cidade">Cidade</option>
+			<option value="motoboy">Motoboy</option>
 		</select>
 		<button class="filtro btn btn-secondary m-1" data-id="asc">              
 			<i class="icon-sort-name-up"></i>	
@@ -69,7 +69,7 @@
 					{{ $e->cod_pedido }}
 				</a> 
 			</td>
-            <td class="t-cnpj">{{ $e->cep }}</td>
+            <td class="t-cep">{{ $e->cep }}</td>
             <td class="t-empresa">{{ $e->empresa->nome}}</td>
             <td class="t-motoboy">{{ $e->motoboy->nome}}</td>
             <td class="d-flex justify-content-center text text-white">
@@ -204,7 +204,7 @@
 		var select = document.getElementById('dados');
 		var value = select.options[select.selectedIndex].value;
 		var id = $(this).data('id');
-		$(location).attr('href', '/empresa/ordenar/'+ id + '/' + value);		
+		$(location).attr('href', '/entrega/ordenar/'+ id + '/' + value);		
 	});
 </script>
 <!------------------->
