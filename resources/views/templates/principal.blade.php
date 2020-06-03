@@ -171,6 +171,13 @@
 					<i class="icon-plus"></i>
 					Adicionar
 				</a>
+
+				<div class= "dropdown-divider"></div>
+
+				<a class= "dropdown-item" href="{{route('entrega_listar')}}"> 
+					<i class="icon-table"></i>
+					Listar								
+				</a>
 			</div>
 
 		</div>
