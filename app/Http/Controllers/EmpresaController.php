@@ -57,10 +57,10 @@ class EmpresaController extends Controller
     function alterar(Request $req , $id){
 
         $req->validate([
-            'nome' => 'required|unique:empresas,nome',
-            'cnpj' => 'required|unique:empresas,cnpj',
-            'telefone' => 'required|unique:empresas,telefone',
-            'email' => 'required|unique:empresas,email',
+            'nome' => 'required',
+            'cnpj' => 'required',
+            'telefone' => 'required',
+            'email' => 'required',
             'senha' => 'required',
         ]);
 

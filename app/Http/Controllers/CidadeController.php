@@ -13,6 +13,13 @@ class CidadeController extends Controller
         return view('telas_cadastros.cadastro_cidade' , [ 'estados' => $estados]);
     }
 
+    function telaAlteracao($id){
+        $cidade = Cidade::find($id);
+        $estados = Estado::all();
+        session()->flash('dados',$id);
+        return view("telas_updates.atualiza_cidade", [ "cde" => $cidade , 'estados' => $estados ]);
+}
+
     function adicionar(Request $req){
 
         $req->validate([
@@ -41,6 +48,36 @@ class CidadeController extends Controller
             }
 
         return redirect()->route('cidade_cadastro');
+    }
+
+    function alterar(Request $req, $id){
+
+        $req->validate([
+            'nome' => 'required',
+            'id_estado' => 'required|numeric',
+        ]);
+
+        $nome = $req->input('nome');
+        $id_estado = $req->input('id_estado');
+      
+
+            $cde = Cidade::find($id);
+            $cde->nome = $nome;
+            $cde->id_estado = $id_estado;            
+
+            if ($cde->save()){
+                session([
+                    'mensagem' =>"Cidade: $nome, foi alterada com sucesso!",
+                    's'=>'s'
+                ]);
+            } else {
+                session([
+                    'mensagem' =>"Cidade: $nome, nao foi alterada!",
+                    'f'=>'f'
+                ]);
+            }
+
+        return redirect()->route('cidade_listar');
     }
 
     function ordenar($id,$nome){
