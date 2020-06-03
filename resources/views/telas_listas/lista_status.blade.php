@@ -9,7 +9,11 @@
 </div>
 
 <div class="row d-flex justify-content-left">
-	<div class = "col-xl-10 col-lg-10 col-md-10 col-sm-9 col-9 d-flex justify-content-left mt-1">
+
+	<div class = "col-xl-1 col-lg-1 col-md-1 col-sm-1 col-0 d-flex justify-content-left mt-1">
+	</div>
+
+	<div class = "col-xl-8 col-lg-8 col-md-8 col-sm-7 col-8 d-flex justify-content-left mt-1">
 		<form style="min-width:100%;" method="get" class="d-flex justify-content-center" action="{{ route('status_buscar') }}">
 			<input class="form-control m-1" type="text" name="busca" placeholder="Busca" autocomplete="off">
 			<button class="btn btn-secondary m-1" type="submit">
@@ -18,7 +22,7 @@
 		</form>
 	</div>
 
-	<div class = "col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3 d-flex justify-content-center mt-1">	
+	<div class = "col-xl-2 col-lg-2 col-md-2 col-sm-3 col-4 d-flex justify-content-center mt-1">	
 		<button class="filtro btn btn-secondary m-1" data-id="asc">              
 			<i class="icon-sort-name-up"></i>	
 		</button>
@@ -27,46 +31,59 @@
 		</button>
 	</div>
 
+	<div class = "col-xl-1 col-lg-1 col-md-1 col-sm-1 col-0 d-flex justify-content-left mt-1">
+	</div>
+
 </div>
 
-<div class="tabela">
+<div class="row">
 
-	<table class="table table-bordered table-hover mt-2">
-		<thead class="thead-dark">
-			<tr>
-				<th>ID:</th>
-				<th>Nome:</th>
-                <th>Operaçoes:</th>
+	<div class = "col-xl-1 col-lg-1 col-md-1 col-sm-1 col-0">
+	</div>
+
+	<div class = "col-xl-10 col-lg-10 col-md-10 col-sm-10 col-12">
+
+		<table class="table table-bordered table-hover mt-2">
+			<thead class="thead-dark">
+				<tr>
+					<th>ID:</th>
+					<th>Nome:</th>
+					<th>Operaçoes:</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+			@foreach ($std as $s)
+			<tr class="table-light">
+				<td>{{ $s->id }}</td>
+				<td>{{ $s->nome }}</td>           
+				
+				<td class="text text-white d-flex justify-content-center">
+
+				<a class="btn btn-warning m-1" href="{{route('status_update', [ 'id' => $s->id ])}}"> 
+					<div class="d-flex">                
+						<span class="d-none d-md-block ">Alterar&nbsp;</span>
+						<i class="icon-arrows-cw"></i>
+					</div> 
+				</a>
+
+				<a class="delete btn btn-danger m-1" data-nome="{{ $s->nome}}" data-id="{{ $s->id}}">
+					<div class="d-flex">                
+						<span class="d-none d-md-block ">Excluir&nbsp;</span>
+						<i class="icon-trash-empty"></i>
+					</div> 			 
+				</a>
+				
+				</td>
 			</tr>
-		</thead>
+			@endforeach
+			</tbody>
+		</table>
 		
-		<tbody>
-		@foreach ($std as $s)
-		  <tr class="table-light">
-			<td>{{ $s->id }}</td>
-			<td>{{ $s->nome }}</td>           
-            
-            <td class="text text-white d-flex justify-content-center">
+	</div>
 
-			 <a class="btn btn-warning m-1" href="{{route('planos_update', [ 'id' => $s->id ])}}"> 
-			 	<div class="d-flex">                
-                    <span class="d-none d-md-block ">Alterar&nbsp;</span>
-                    <i class="icon-arrows-cw"></i>
-                </div> 
-			 </a>
-
-			 <a class="delete btn btn-danger m-1" data-nome="{{ $s->nome}}" data-id="{{ $s->id}}">
-			 	<div class="d-flex">                
-                    <span class="d-none d-md-block ">Excluir&nbsp;</span>
-					<i class="icon-trash-empty"></i>
-                </div> 			 
-             </a>
-             
-			</td>
-		  </tr>
-		@endforeach
-		</tbody>
-	</table>
+	<div class = "col-xl-1 col-lg-1 col-md-1 col-sm-1 col-0">
+	</div>
 
 </div>
 

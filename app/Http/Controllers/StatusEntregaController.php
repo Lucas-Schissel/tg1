@@ -56,12 +56,12 @@ class StatusEntregaController extends Controller
 
             if ($std->save()){
                 session([
-                    'mensagem' =>"Status: $std, alterado com sucesso!",
+                    'mensagem' =>"Status: $std->nome, alterado com sucesso!",
                     's'=>'s'
                 ]);
             } else {
                 session([
-                    'mensagem' =>"Status: $nome, nao foi alterado!",
+                    'mensagem' =>"Status: $std->nome, nao foi alterado!",
                     'f'=>'f'
                 ]);
             }
