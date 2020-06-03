@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cidade;
 use App\Estado;
-
 class CidadeController extends Controller
 {
     function telaCadastro(){
@@ -127,4 +126,5 @@ class CidadeController extends Controller
             }
             return redirect()->route('cidade_listar');
     }
+
 }
