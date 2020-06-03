@@ -9,6 +9,6 @@ class StatusEntrega extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'status_estrega';
+    protected $table = 'status_entrega';
     protected $primaryKey = 'id';
 }
