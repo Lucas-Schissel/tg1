@@ -137,6 +137,6 @@ class EmpresaController extends Controller
                     'f'=>'f'
                 ]);
             }
-        return EmpresaController::listar();
+            return redirect()->route('empresa_listar');
     }
 }
