@@ -48,28 +48,22 @@ class MotoboyController extends Controller
         return view('telas_cadastros.cadastro_motoboy');
     }
 
-    /*function alterar(Request $req , $id){
+    function alterar(Request $req , $id){
 
         $req->validate([
-            'nome' => 'required|unique:motoboys,nome',
-            'cnpj' => 'required|unique:motoboys,cnpj',
-            'telefone' => 'required|unique:motoboys,telefone',
-            'email' => 'required|unique:motoboys,email',
-            'senha' => 'required',
+            'nome' => 'required|unique:motoboy,nome',
+            'cpf' => 'required|unique:motoboy,cpf',
+            'telefone' => 'required|unique:motoboy,telefone',
         ]);
 
         $nome = $req->input('nome');
-        $cnpj = $req->input('cnpj');
+        $cpf = $req->input('cpf');
         $telefone = $req->input('telefone');
-    	$email = $req->input('email');
-        $senha = $req->input('senha');
 
             $mot = motoboy::find($id);
             $mot->nome = $nome;
-            $mot->cnpj = $cnpj;
+            $mot->cpf = $cpf;
             $mot->telefone = $telefone;
-            $mot->email = $email;
-            $mot->senha = $senha;
 
             if ($mot->save()){
                 session([
@@ -84,8 +78,8 @@ class MotoboyController extends Controller
             }
             
         return redirect()->route('motoboy_listar');
-    }*/
-    function ordenar($id,$nome){
+    }
+    /*function ordenar($id,$nome){
         $dados = collect(session('dados')); 
         if($id == 'asc'){
             $motoboys = $dados->sortBy($nome);
@@ -93,7 +87,7 @@ class MotoboyController extends Controller
             $motoboys = $dados->sortByDesc($nome);
         }          
         return motoboyController::mostrar($motoboys);  
-    }
+    } */
 
     function buscar(Request $req){
         $busca = $req->input('busca');
