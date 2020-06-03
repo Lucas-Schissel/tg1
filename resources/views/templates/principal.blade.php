@@ -113,6 +113,14 @@
 			</button>
 
 			<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+				<a class= "dropdown-item" href="{{route('cidade_listar')}}"> 
+					<i class="icon-user-circle-o"></i>	
+					Cidades														
+				</a>
+
+				<div class= "dropdown-divider"></div>
+
 				<a class= "dropdown-item" href="{{route('empresa_listar')}}"> 
 					<i class="icon-user-circle-o"></i>	
 					Empresas														

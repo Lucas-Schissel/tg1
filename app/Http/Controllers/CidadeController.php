@@ -42,4 +42,52 @@ class CidadeController extends Controller
 
         return redirect()->route('cidade_cadastro');
     }
+
+    function ordenar($id,$nome){
+        $dados = collect(session('dados')); 
+            if($id == 'asc'){
+                $cidades = $dados->sortBy($nome);
+            }elseif($id == 'desc'){
+                $cidades = $dados->sortByDesc($nome);
+            }         
+        return CidadeController::mostrar($cidades);  
+    }
+
+    function buscar(Request $req){
+        $busca = $req->input('busca');
+        if(isset($busca)){
+            $cidades = Cidade::where('nome', 'LIKE', "%$busca%")->get();
+            return CidadeController::mostrar($cidades);        
+        }else{
+            return redirect()->route('cidade_listar');
+        }              
+    }
+
+    static function mostrar($array){
+        $cidades = $array;
+        session()->flash('dados',$cidades);
+        return view('telas_listas.lista_cidades', [ "cde" => $cidades]);
+    }
+
+    function listar(){        
+        $cidades = Cidade::all(); 
+        return CidadeController::mostrar($cidades);
+    }
+
+    function excluir($id){        
+        $cidade = Cidade::find($id);                    
+            if ($cidade->delete()){
+                session([
+                    'mensagem' =>"Cidade: $cidade->nome, foi excluída com sucesso!",
+                    's'=>'s'
+                ]);
+            
+            } else {
+                session([
+                    'mensagem' =>"Cidade: $cidade->nome, nao foi excluída!",
+                    'f'=>'f'
+                ]);
+            }
+            return redirect()->route('cidade_listar');
+    }
 }
