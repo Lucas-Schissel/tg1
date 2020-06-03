@@ -30,17 +30,17 @@ class StatusEntregaController extends Controller
 
             if ($std->save()){
                 session([
-                    'mensagem' =>"Status: $std, foi adicionado com sucesso!",
+                    'mensagem' =>"Status: $std->nome, foi adicionado com sucesso!",
                     's'=>'s'
                 ]);
             } else {
                 session([
-                    'mensagem' =>"Status: $std, nao foi adicionado!",
+                    'mensagem' =>"Status: $std->nome, nao foi adicionado!",
                     'f'=>'f'
                 ]);
             }
             
-        return view('telas_cadastros.cadastro_empresa');
+        return view('telas_cadastros.cadastro_status');
     }
 
     function alterar(Request $req , $id){
