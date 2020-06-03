@@ -11,4 +11,8 @@ class StatusEntrega extends Model
 
     protected $table = 'status_entrega';
     protected $primaryKey = 'id';
+
+    function entregas(){
+    	return $this->hasMany('App\Entrega', 'id_status', 'id');
+    }
 }
