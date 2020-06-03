@@ -173,7 +173,7 @@ Route::middleware(['auth'])->group(function(){
      Route::get('/status/buscar', 'StatusEntregaController@buscar')
      ->name('status_buscar');
  
-     Route::get('/status/ordenar/{id}/{nome}', 'StatusEntregaController@ordenar')
+     Route::get('/status/ordenar/{id}', 'StatusEntregaController@ordenar')
      ->name('status_ordenar');
  
      Route::get('/status/excluir/{id}', 'StatusEntregaController@excluir')

@@ -69,35 +69,35 @@ class StatusEntregaController extends Controller
         return redirect()->route('status_listar');
     }
 
-    function ordenar($id,$nome){
+    function ordenar($id){
         $dados = collect(session('dados')); 
         if($id == 'asc'){
-            $status = $dados->sortBy($nome);
+            $status = $dados->sort();
         }elseif($id == 'desc'){
-            $status = $dados->sortByDesc($nome);
+            $status = $dados->sortDesc();
         }          
-        return EmpresaController::mostrar($status);  
+        return StatusEntregaController::mostrar($status);  
     }
 
     function buscar(Request $req){
         $busca = $req->input('busca');
         if(isset($busca)){
             $status = StatusEntrega::where('nome', 'LIKE', "%$busca%")->get();
-            return EmpresaController::mostrar($status);        
+            return StatusEntregaController::mostrar($status);        
         }else{
-            return redirect()->route('status_listas');
+            return redirect()->route('status_listar');
         }              
     }
 
     static function mostrar($array){
         $status = $array;
         session()->flash('dados',$status);
-        return view('telas_listas.lista_status', [ "emp" => $status]);
+        return view('telas_listas.lista_status', [ "std" => $status]);
     }
 
     function listar(){        
         $status = StatusEntrega::all(); 
-        return EmpresaController::mostrar($status);
+        return StatusEntregaController::mostrar($status);
     }
 
     function excluir($id){        

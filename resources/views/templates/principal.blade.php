@@ -140,6 +140,13 @@
 					Motoboy								
 				</a>
 
+				<div class= "dropdown-divider"></div>
+
+				<a class= "dropdown-item" href="{{route('status_listar')}}"> 
+					<i class="icon-file-powerpoint"></i>
+					Status								
+				</a>
+
                 <div class= "dropdown-divider"></div>
 
 				<a class= "dropdown-item" href="{{route('planos_listar')}}"> 
