@@ -155,7 +155,25 @@
 				</a>
 			</div>
 
-		</div>	
+		</div>
+
+		<div class="dropdown">
+
+            <button class="btn btn-secondary" type="button" data-toggle="dropdown">
+                <div class="d-flex">                
+                    <span class="d-none d-sm-block ">Entregas&nbsp;</span>
+                    <i class="icon-box"></i>
+                </div> 
+            </button>
+
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<a class= "dropdown-item view_data" href="{{route('entrega_cadastro')}}">
+					<i class="icon-plus"></i>
+					Adicionar
+				</a>
+			</div>
+
+		</div>
 				
 		<div class="dropdown">
 
