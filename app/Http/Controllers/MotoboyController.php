@@ -110,7 +110,7 @@ class MotoboyController extends Controller
         return MotoboyController::mostrar($motoboys);
     }
 
-    /*function excluir($id){        
+    function excluir($id){        
         $motoboy = motoboy::find($id);                    
             if ($motoboy->delete()){
                 session([
@@ -125,5 +125,5 @@ class MotoboyController extends Controller
                 ]);
             }
         return MotoboyController::listar();
-    }*/
+    }
 }
