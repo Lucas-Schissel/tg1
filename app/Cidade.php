@@ -15,4 +15,8 @@ class Cidade extends Model
     function estados(){
     	return $this->belongsTo('App\Estado', 'id_estado', 'id');
     }
+
+    function entregas(){
+    	return $this->hasMany('App\Entrega', 'id_cidade', 'id');
+    }
 }

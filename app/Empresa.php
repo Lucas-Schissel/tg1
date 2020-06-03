@@ -11,4 +11,8 @@ class Empresa extends Model
 
     protected $table = 'empresas';
     protected $primaryKey = 'id';
+
+    function entregas(){
+    	return $this->hasMany('App\Entrega', 'id_empresa', 'id');
+    }
 }
