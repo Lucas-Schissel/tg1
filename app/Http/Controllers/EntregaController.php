@@ -147,14 +147,14 @@ class EntregaController extends Controller
         }elseif($id == 'desc'){
             $entregas = $dados->sortByDesc($nome);
         }          
-        return EmpresaController::mostrar($entregas);  
+        return EntregaController::mostrar($entregas);  
     }
 
     function buscar(Request $req){
         $busca = $req->input('busca');
         if(isset($busca)){
             $entregas = Entrega::where('nome', 'LIKE', "%$busca%")->get();
-            return EmpresaController::mostrar($entregas);        
+            return EntregaController::mostrar($entregas);        
         }else{
             return redirect()->route('entrega_listar');
         }              
@@ -168,7 +168,7 @@ class EntregaController extends Controller
 
     function listar(){        
         $entregas = Entrega::all(); 
-        return EmpresaController::mostrar($entregas);
+        return EntregaController::mostrar($entregas);
     }
 
     function excluir($id){        
