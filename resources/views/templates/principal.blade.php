@@ -68,14 +68,14 @@
 							
 			<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
 				<a class= "dropdown-item" href="{{route('cidade_cadastro')}}"> 
-					<i class="icon-user-circle-o"></i>	
+					<i class="icon-picture"></i>	
 					Cidades														
 				</a>
 
 				<div class= "dropdown-divider"></div>
 
 				<a class= "dropdown-item" href="{{route('empresa_cadastro')}}"> 
-					<i class="icon-user-circle-o"></i>	
+					<i class="icon-industry"></i>	
 					Empresas														
 				</a>
 
@@ -96,7 +96,7 @@
         <div class= "dropdown-divider"></div>
 
 				<a class= "dropdown-item" href="{{route('planos_cadastro')}}"> 
-					<i class="icon-tags"></i>
+					<i class="icon-file-powerpoint"></i>
 					Planos								
 				</a>
         
@@ -115,14 +115,14 @@
 			<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
 
 				<a class= "dropdown-item" href="{{route('cidade_listar')}}"> 
-					<i class="icon-user-circle-o"></i>	
+					<i class="icon-picture"></i>	
 					Cidades														
 				</a>
 
 				<div class= "dropdown-divider"></div>
 
 				<a class= "dropdown-item" href="{{route('empresa_listar')}}"> 
-					<i class="icon-user-circle-o"></i>	
+					<i class="icon-industry"></i>	
 					Empresas														
 				</a>
 
@@ -136,7 +136,7 @@
                 <div class= "dropdown-divider"></div>
 
 				<a class= "dropdown-item" href="{{route('planos_listar')}}"> 
-					<i class="icon-tags"></i>
+					<i class="icon-file-powerpoint"></i>
 					Planos								
 				</a>
 			</div>
