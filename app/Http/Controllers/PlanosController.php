@@ -96,7 +96,7 @@ class PlanosController extends Controller
             $planos = Planos::where('nome', 'LIKE', "%$busca%")->get();
             return PlanosController::mostrar($planos);        
         }else{
-            return PlanosController::listar();
+            return redirect()->route('planos_listar');
         }              
     }
 

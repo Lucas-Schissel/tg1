@@ -42,7 +42,7 @@
         value="{{ $pla->descricao}}" required>
     </div>
 
-    <button class="btn btn-success btn-block mt-3 p-3 "  type="submit">
+    <button class="btn btn-success btn-block mt-1 "  type="submit">
 		Salvar Alteraçoes
 		<i class="icon-plus-circled"></i>
     </button>  
