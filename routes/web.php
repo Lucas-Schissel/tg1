@@ -171,6 +171,9 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/motoboy/buscar', 'MotoboyController@buscar')
     ->name('motoboy_buscar');
 
+    Route::get('/motoboy/ordenar/{id}/{nome}', 'MotoboyController@ordenar')
+    ->name('motoboy_ordenar');
+
     Route::get('/motoboy/excluir/{id}', 'MotoboyController@excluir')
 	->name('motoboy_delete');
     //......................................................................
