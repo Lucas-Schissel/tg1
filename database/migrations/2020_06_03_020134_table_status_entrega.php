@@ -13,7 +13,12 @@ class TableStatusEntrega extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('status_entrega', function (Blueprint $table) {
+            $table->id('id');
+            $table->string("nome",255);          
+            $table->softDeletes();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class TableStatusEntrega extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('status_entrega');
     }
 }
