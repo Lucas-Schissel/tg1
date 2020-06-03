@@ -35,12 +35,12 @@ class MotoboyController extends Controller
         
             if ($mot->save()){
                 session([
-                    'mensagem' =>"motoboy: $nome, foi adicionada com sucesso!",
+                    'mensagem' =>"motoboy: $nome, foi adicionado com sucesso!",
                     's'=>'s'
                 ]);
             } else {
                 session([
-                    'mensagem' =>"motoboy: $nome, nao foi adicionada!",
+                    'mensagem' =>"motoboy: $nome, nao foi adicionado!",
                     'f'=>'f'
                 ]);
             }
@@ -48,7 +48,7 @@ class MotoboyController extends Controller
         return view('telas_cadastros.cadastro_motoboy');
     }
 
-    function alterar(Request $req , $id){
+    /*function alterar(Request $req , $id){
 
         $req->validate([
             'nome' => 'required|unique:motoboys,nome',
@@ -84,5 +84,52 @@ class MotoboyController extends Controller
             }
             
         return redirect()->route('motoboy_listar');
+    }*/
+    function ordenar($id,$nome){
+        $dados = collect(session('dados')); 
+        if($id == 'asc'){
+            $motoboys = $dados->sortBy($nome);
+        }elseif($id == 'desc'){
+            $motoboys = $dados->sortByDesc($nome);
+        }          
+        return motoboyController::mostrar($motoboys);  
     }
+
+    function buscar(Request $req){
+        $busca = $req->input('busca');
+        if(isset($busca)){
+            $motoboys = motoboy::where('nome', 'LIKE', "%$busca%")->get();
+            return MotoboyController::mostrar($motoboys);        
+        }else{
+            return MotoboyController::listar();
+        }              
+    }
+
+    static function mostrar($array){
+        $motoboys = $array;
+        session()->flash('dados',$motoboys);
+        return view('telas_listas.lista_motoboys', [ "mot" => $motoboys]);
+    }
+
+    function listar(){        
+        $motoboys = motoboy::all(); 
+        return MotoboyController::mostrar($motoboys);
+    }
+
+    /*function excluir($id){        
+        $motoboy = motoboy::find($id);                    
+            if ($motoboy->delete()){
+                session([
+                    'mensagem' =>"motoboy: $motoboy->nome, foi excluída com sucesso!",
+                    's'=>'s'
+                ]);
+            
+            } else {
+                session([
+                    'mensagem' =>"motoboy: $motoboy->nome, nao foi excluída!",
+                    'f'=>'f'
+                ]);
+            }
+        return MotoboyController::listar();
+    }*/
 }
