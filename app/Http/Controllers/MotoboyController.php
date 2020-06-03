@@ -87,7 +87,7 @@ class MotoboyController extends Controller
             $motoboys = $dados->sortByDesc($nome);
         }          
         return motoboyController::mostrar($motoboys);  
-    } */
+    }*/
 
     function buscar(Request $req){
         $busca = $req->input('busca');
