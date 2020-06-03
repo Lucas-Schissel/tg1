@@ -22,13 +22,13 @@
 
 			<form method="post" action="{{ route('planos_add') }}">
 			@csrf					
-                    <input class="form-control mt-3 p-4 border border-success rounded" type="text"  name="nome" placeholder="Digite um nome . . ." required>
+                    <input class="form-control mt-1 border border-success rounded" type="text"  name="nome" placeholder="Digite um nome . . ." required>
 
-                    <input class="form-control mt-3 p-4 border border-success rounded" type="text"  name="descricao" placeholder="Digite um descriçao . . ." required>
+                    <input class="form-control mt-1 border border-success rounded" type="text"  name="descricao" placeholder="Digite um descriçao . . ." required>
 
-                    <input class="form-control mt-3 p-4 border border-success rounded" type="text"  name="valor" placeholder="Digite o valor mensal do plano . . ." required>
+                    <input class="form-control mt-1 border border-success rounded" type="text"  name="valor" placeholder="Digite o valor mensal do plano . . ." required>
 															
-					<button class="btn btn-success btn-block mt-3 p-3 "  type="submit">
+					<button class="btn btn-success btn-block mt-1 "  type="submit">
 					 Cadastrar
 					<i class="icon-plus-circled"></i>
 					</button>			 
@@ -47,8 +47,6 @@
 	<span class="d-block p-2 bg-dark w-100">
 	</span>
 </div>
-
-
 
 <!------------------->
 @endsection
