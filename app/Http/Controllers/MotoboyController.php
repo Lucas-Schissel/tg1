@@ -79,7 +79,8 @@ class MotoboyController extends Controller
             
         return redirect()->route('motoboy_listar');
     }
-    /*function ordenar($id,$nome){
+    
+    function ordenar($id,$nome){
         $dados = collect(session('dados')); 
         if($id == 'asc'){
             $motoboys = $dados->sortBy($nome);
@@ -87,7 +88,7 @@ class MotoboyController extends Controller
             $motoboys = $dados->sortByDesc($nome);
         }          
         return motoboyController::mostrar($motoboys);  
-    }*/
+    }
 
     function buscar(Request $req){
         $busca = $req->input('busca');
