@@ -4,11 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Entrega;
+use App\Empresa;
+use App\StatusEntrega;
+use App\Motoboy;
+use App\Cidade;
 
 class EntregaController extends Controller
 {
     function telaCadastro(){
-        return view('telas_cadastros.cadastro_entrega');
+        $empresas = Empresa::all();
+        $motoboys = Motoboy::all();
+        $cidades = Cidade::all();
+
+        return view('telas_cadastros.cadastro_entrega')->with(compact('empresas','motoboys','cidades'));
     }
 
     function telaAlteracao($id){
@@ -29,11 +37,10 @@ class EntregaController extends Controller
             'destinatario' => 'required',
             'conteudo' => 'required',
             'id_empresa' => 'required', 
-            'id_status' => 'required', 
             'id_motoboy' => 'required', 
         ]);
 
-        $cod_pedido = $req->input('nome');
+        $cod_pedido = $req->input('cod_pedido');
         $id_cidade = $req->input('id_cidade');
         $cep = $req->input('cep');
     	$rua = $req->input('rua');
@@ -43,13 +50,14 @@ class EntregaController extends Controller
         $destinatario = $req->input('destinatario');
         $conteudo = $req->input('conteudo');
         $id_empresa = $req->input('id_empresa');
-        $id_status = $req->input('id_status');
+        $id_status = 1;
         $id_motoboy = $req->input('id_motoboy');
 
             $etg = new Entrega();
             $etg->cod_pedido = $cod_pedido;
             $etg->id_cidade = $id_cidade;
             $etg->cep = $cep;
+            $etg->rua = $rua;
             $etg->numero = $numero;
             $etg->complemento = $complemento;
             $etg->bairro = $bairro;
@@ -71,7 +79,7 @@ class EntregaController extends Controller
                 ]);
             }
             
-        return view('telas_cadastros.cadastro_entrega');
+        return redirect()->route('entrega_cadastro');
     }
 
     function alterar(Request $req , $id){
@@ -86,12 +94,11 @@ class EntregaController extends Controller
             'bairro' => 'required',          
             'destinatario' => 'required',
             'conteudo' => 'required',
-            'id_empresa' => 'required', 
-            'id_status' => 'required', 
+            'id_empresa' => 'required',  
             'id_motoboy' => 'required', 
         ]);
 
-        $cod_pedido = $req->input('nome');
+        $cod_pedido = $req->input('cod_pedido');
         $id_cidade = $req->input('id_cidade');
         $cep = $req->input('cep');
     	$rua = $req->input('rua');
@@ -101,13 +108,14 @@ class EntregaController extends Controller
         $destinatario = $req->input('destinatario');
         $conteudo = $req->input('conteudo');
         $id_empresa = $req->input('id_empresa');
-        $id_status = $req->input('id_status');
+        $id_status = 1;
         $id_motoboy = $req->input('id_motoboy');
 
             $etg = Entrega::find($id);
             $etg->cod_pedido = $cod_pedido;
             $etg->id_cidade = $id_cidade;
             $etg->cep = $cep;
+            $etg->rua = $rua;
             $etg->numero = $numero;
             $etg->complemento = $complemento;
             $etg->bairro = $bairro;
