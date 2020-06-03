@@ -149,8 +149,37 @@ Route::middleware(['auth'])->group(function(){
  
      Route::get('/estado/excluir/{id}', 'EstadoController@excluir')
      ->name('estado_delete');
+
+    //Status................................................................
+
+     Route::get('/status/cadastro', 'StatusEntregaController@telaCadastro')
+     ->name('status_cadastro');
+     
+     Route::post('/status/cadastro/adicionar', 'StatusEntregaController@adicionar')
+     ->name('status_add');
+ 
+     Route::get('/status/alterar/{id}', 'StatusEntregaController@telaAlteracao')
+     ->name('status_update');
+ 
+     Route::post('/status/alterar/{id}', 'StatusEntregaController@alterar')
+     ->name('status_alterar');
+ 
+     Route::get('/status/mostrar', 'StatusEntregaController@mostrar')
+     ->name('status_mostrar');
+ 
+     Route::get('/status/listar', 'StatusEntregaController@listar')
+     ->name('status_listar');
+ 
+     Route::get('/status/buscar', 'StatusEntregaController@buscar')
+     ->name('status_buscar');
+ 
+     Route::get('/status/ordenar/{id}', 'StatusEntregaController@ordenar')
+     ->name('status_ordenar');
+ 
+     Route::get('/status/excluir/{id}', 'StatusEntregaController@excluir')
+     ->name('status_delete');
     
-    //......................................................................
+    
     
     //Motoboy...............................................................
     Route::get('/motoboy/cadastro', 'MotoboyController@telaCadastro')
