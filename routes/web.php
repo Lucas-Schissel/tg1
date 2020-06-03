@@ -162,11 +162,16 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/motoboy/alterar/{id}', 'MotoboyController@telaAlteracao')
     ->name('motoboy_update');
 
+    Route::post('/motoboy/alterar/{id}', 'MotoboyController@alterar')
+	->name('motoboy_alterar');
+
     Route::get('/motoboy/listar', 'MotoboyController@listar')
     ->name('motoboy_listar');
 
     Route::get('/motoboy/buscar', 'MotoboyController@buscar')
     ->name('motoboy_buscar');
+
+
 
 
     //......................................................................
