@@ -18,6 +18,7 @@ class CreateMotoboy extends Migration
             $table->string('nome', 255);
             $table->char('cpf', 14);
             $table->string('telefone', 11);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

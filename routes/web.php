@@ -204,7 +204,38 @@ Route::middleware(['auth'])->group(function(){
     ->name('motoboy_ordenar');
 
     Route::get('/motoboy/excluir/{id}', 'MotoboyController@excluir')
-	->name('motoboy_delete');
+    ->name('motoboy_delete');
+    
+    //Entrega................................................................
+
+        Route::get('/entrega/cadastro', 'EntregaController@telaCadastro')
+        ->name('entrega_cadastro');
+        
+        Route::post('/entrega/cadastro/adicionar', 'EntregaController@adicionar')
+        ->name('entrega_add');
+    
+        Route::get('/entrega/alterar/{id}', 'EntregaController@telaAlteracao')
+        ->name('entrega_update');
+    
+        Route::post('/entrega/alterar/{id}', 'EntregaController@alterar')
+        ->name('entrega_alterar');
+    
+        Route::get('/entrega/mostrar', 'EntregaController@mostrar')
+        ->name('entrega_mostrar');
+    
+        Route::get('/entrega/listar', 'EntregaController@listar')
+        ->name('entrega_listar');
+    
+        Route::get('/entrega/buscar', 'EntregaController@buscar')
+        ->name('entrega_buscar');
+    
+        Route::get('/entrega/ordenar/{id}/{nome}', 'EntregaController@ordenar')
+        ->name('entrega_ordenar');
+    
+        Route::get('/entrega/excluir/{id}', 'EntregaController@excluir')
+        ->name('entrega_delete');
+
+
     //......................................................................
 
     });

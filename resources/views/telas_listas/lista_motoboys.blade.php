@@ -38,8 +38,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
-                    <th class="t-">CPF</th>
-                    <th class="t-fone">Telefone</th>
+                    <th class="t-cpf">CPF</th>
+                    <th class="t-telefone">Telefone</th>
                     <th>Operaçoes</th>
                 </tr>
             </thead>
@@ -60,7 +60,7 @@
                     </a> 
                 </td>
                 <td class="t-cpf">{{ $m->cpf }}</td>
-                <td class="t-fone">{{ $m->telefone }}</td>
+                <td class="t-telefone">{{ $m->telefone }}</td>
                 <td class="d-flex justify-content-center text text-white">
 
                 <a class="btn btn-warning m-1" href="{{route('motoboy_update', [ 'id' => $m->id ])}}"> 
@@ -75,13 +75,6 @@
                         <span class="d-none d-lg-block ">Excluir&nbsp;</span>
                         <i class="icon-trash-empty"></i>
                     </div> 			 
-                </a>
-
-                <a class="btn btn-success m-1" href="#">
-                    <div class="d-flex">                
-                        <span class="d-none d-lg-block ">Indices&nbsp;</span>
-                        <i class="icon-chart-line"></i>
-                    </div> 				
                 </a>
 
                 </td>
