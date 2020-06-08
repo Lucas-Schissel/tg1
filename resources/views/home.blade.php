@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Planos</h5>
                         <p class="card-text">Clique aqui e conheça nossas ofertas e escolha a que mais combina com você</p>
-                            <a href="#" class="btn btn-primary">Conhecer</a>
+                            <a href="{{route('planos_listar')}}" class="btn btn-primary">Conhecer</a>
                 </div>
         </div>
         <div class="card" style="width: 18rem;">
@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Status</h5>
                         <p class="card-text">Não sabe como esta o seu pedido? Clique aqui! Nós vamos te ajudar.</p>
-                            <a href="#" class="btn btn-primary">Acompanhar</a>
+                            <a href="{{route('status_listar')}}" class="btn btn-primary">Acompanhar</a>
                 </div>
         </div>
         <div class="card" style="width: 18rem;">
@@ -32,7 +32,7 @@
         <div class="card-body">
             <h5 class="card-title">Registrar Empresa</h5>
                 <p class="card-text">Aqui é possivel preencher os dados da sua Empresa para que possa aproveitar nossas soluções.</p>
-            <a href="#" class="btn btn-primary">Registrar</a>
+            <a href="{{route('empresa_cadastro')}}" class="btn btn-primary">Registrar</a>
         </div>
 </div>
 <div class="card" style="width: 18rem;">
@@ -40,7 +40,7 @@
         <div class="card-body">
             <h5 class="card-title">Lista de Motoboys</h5>
                 <p class="card-text">Aqui esta a lista de todos os motoboys onde é possivel ver quem são nossos associados.</p>
-            <a href="#" class="btn btn-primary">Lista Motoboy</a>
+            <a href="{{route('motoboy_listar')}}" class="btn btn-primary">Lista Motoboy</a>
         </div>
 </div>
 <div class="card" style="width: 18rem;">
