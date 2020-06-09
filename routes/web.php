@@ -226,10 +226,10 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/entrega/listar', 'EntregaController@listar')
         ->name('entrega_listar');
     
-        Route::get('/entrega/buscar', 'EntregaController@buscar')
+        Route::post('/entrega/buscar', 'EntregaController@buscar')
         ->name('entrega_buscar');
     
-        Route::get('/entrega/ordenar/{id}/{nome}', 'EntregaController@ordenar')
+        Route::post('/entrega/ordenar', 'EntregaController@ordenar')
         ->name('entrega_ordenar');
     
         Route::get('/entrega/excluir/{id}', 'EntregaController@excluir')

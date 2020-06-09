@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Entrega;
 use App\Empresa;
@@ -140,20 +141,57 @@ class EntregaController extends Controller
         return redirect()->route('entrega_listar');
     }
 
-    function ordenar($id,$nome){
-        $dados = collect(session('dados')); 
+    function ordenar(Request $req){
+        $id = $req->input('var1');
+        $v2 = $req->input('var2');
+        if($v2 === 'data'){
+            $tabela = 'empresas';
+            $nome = 'created_at';
+        }else if($v2 === 'empresa'){
+            $tabela = 'empresas';
+            $nome = 'id_empresa';
+        }else if($v2 === 'motoboy'){
+            $tabela = 'motoboy';
+            $nome = 'id_motoboy';
+        }else if($v2 === 'cidade'){
+            $tabela = 'cidades';
+            $nome = 'id_cidade';
+        }
+
+        $dados = collect(session('dados'));
+        $valor = DB::table("$tabela")->select('id', 'nome')->get();
+
+        foreach($dados as $d){
+            foreach($valor as $v){
+                if($tabela == 'empresas'){
+                    if($d->id_empresa == $v->id){
+                        $d->id_empresa = $v->nome;
+                    }
+                }else if($tabela == 'motoboy'){
+                    if($d->id_motoboy == $v->id){
+                        $d->id_motoboy = $v->nome;
+                    }
+                }else if($tabela == 'cidades'){
+                    if($d->id_cidade == $v->id){
+                        $d->id_cidade = $v->nome;
+                    }
+                }
+            }
+        }
+        //dd($dados);
         if($id == 'asc'){
             $entregas = $dados->sortBy($nome);
         }elseif($id == 'desc'){
             $entregas = $dados->sortByDesc($nome);
-        }          
+        } 
+        //dd($entregas);
         return EntregaController::mostrar($entregas);  
     }
 
     function buscar(Request $req){
         $busca = $req->input('busca');
         if(isset($busca)){
-            $entregas = Entrega::where('nome', 'LIKE', "%$busca%")->get();
+            $entregas = Entrega::where('cod_pedido', 'LIKE', "%$busca%")->get();
             return EntregaController::mostrar($entregas);        
         }else{
             return redirect()->route('entrega_listar');
