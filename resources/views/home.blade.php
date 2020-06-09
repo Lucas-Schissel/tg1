@@ -20,11 +20,11 @@
                 </div>
         </div>
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2018/05/09/15/28/question-3385451_960_720.jpg" class="img-fluid" alt="Imagem responsiva">
+            <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/11/06/12/52/roller-1027350_960_720.jpg" class="img-fluid" alt="Imagem responsiva">
                 <div class="card-body">
-                    <h5 class="card-title">Status</h5>
-                        <p class="card-text">Não sabe como esta o seu pedido? Clique aqui! Nós vamos te ajudar.</p>
-                            <a href="{{route('status_listar')}}" class="btn btn-primary">Acompanhar</a>
+                    <h5 class="card-title">Cadastrar Motoby</h5>
+                        <p class="card-text">Aqui é possivel cadastrar um novo motoboy a lista de pilotos da nossa equipe.</p>
+                            <a href="{{route('status_listar')}}" class="btn btn-primary">Cadastrar</a>
                 </div>
         </div>
         <div class="card" style="width: 18rem;">

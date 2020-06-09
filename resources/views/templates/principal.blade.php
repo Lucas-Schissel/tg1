@@ -35,7 +35,7 @@
 			</button>
 							
 			<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class= "dropdown-item" href="#"> 
+				<a class= "dropdown-item" href="{{'home'}}"> 
 					<i class="icon-home"></i>
 					Menu								
 				</a>
