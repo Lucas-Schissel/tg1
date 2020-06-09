@@ -9,7 +9,8 @@
 
 <div class="row d-flex justify-content-left">
 	<div class = "col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 d-flex justify-content-left mt-1">
-		<form style="min-width:100%;" method="get" class="d-flex justify-content-center" action="{{ route('entrega_buscar')}}">
+		<form style="min-width:100%;" method="post" class="d-flex justify-content-center" action="{{ route('entrega_buscar')}}">
+		@csrf
 			<input class="form-control m-1" type="text" name="busca" placeholder="Busca" autocomplete="off">
 			<button class="btn btn-secondary m-1" type="submit">
 				<i class="icon-zoom-in"></i>			
@@ -17,18 +18,26 @@
 		</form>
 	</div>
 
-	<div class = "col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 d-flex justify-content-center mt-1">	
-		<select id="dados" class="btn btn-secondary btn-block m-1">			
-			<option value="cod_pedido">Cod Pedido</option>
-			<option value="empresa">Empresa</option>
-			<option value="motoboy">Motoboy</option>
-		</select>
-		<button class="filtro btn btn-secondary m-1" data-id="asc">              
-			<i class="icon-sort-name-up"></i>	
-		</button>
-		<button class="filtro btn btn-secondary m-1" data-id="desc">              
-			<i class="icon-sort-name-down"></i>	
-		</button>
+	<div class = "col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12 d-flex justify-content-center mt-1">
+		<form style="min-width:100%;" method="post" id="form" action="{{ route('entrega_ordenar')}}">	
+		@csrf
+			<select id="dados" name="dados" class="form-control btn btn-secondary btn-block m-1">
+				<option value="data">Data</option>			
+				<option value="cidade">Cidade</option>
+				<option value="empresa">Empresa</option>
+				<option value="motoboy">Motoboy</option>
+			</select>
+	</div>
+	<div class = "col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12 d-flex justify-content-center mt-1">
+			<input type="hidden" id="var1" name="var1" value=""/>
+			<input type="hidden" id="var2" name="var2" value=""/>
+			<button class="filtro btn btn-secondary btn-block m-1" data-id="asc">              
+				<i class="icon-sort-name-up"></i>	
+			</button>
+			<button class="filtro btn btn-secondary btn-block m-1" data-id="desc">              
+				<i class="icon-sort-name-down"></i>	
+			</button>
+		</form>
 	</div>
 </div>
 
@@ -39,7 +48,9 @@
 			<tr>
 				<th>ID</th>
 				<th>Cod Pedido</th>
+				<th class="t-data">Data</th>
 				<th class="t-cep">CEP</th>
+				<th class="t-empresa">Cidade</th>
                 <th class="t-empresa">Empresa</th>
                 <th class="t-motoboy">Motoboy</th>
                 <th>Operaçoes</th>
@@ -54,7 +65,7 @@
 				<a 
 					class="dados btn btn-light btn-block text-left m-1"					
 					data-id ="{{ $e->id}}" 
-					data-cod ="{{ $e->cod_pedido}}"
+					data-pedido ="{{ $e->cod_pedido}}"
 					data-cep ="{{ $e->cep}}"
 					data-rua ="{{ $e->rua}}"   
                     data-numero ="{{ $e->numero}}"
@@ -69,12 +80,14 @@
 					{{ $e->cod_pedido }}
 				</a> 
 			</td>
-            <td class="t-cep">{{ $e->cep }}</td>
+			<td class="t-data">{{ $e->created_at->format('d/m/Y') }}</td>
+			<td class="t-cep">{{ $e->cep }}</td>
+			<td class="t-empresa">{{ $e->cidade->nome}}</td>
             <td class="t-empresa">{{ $e->empresa->nome}}</td>
             <td class="t-motoboy">{{ $e->motoboy->nome}}</td>
             <td class="d-flex justify-content-center text text-white">
 
-			 <a class="btn btn-warning m-1" href="{{route('empresa_update', [ 'id' => $e->id ])}}"> 
+			 <a class="btn btn-warning m-1" href="{{route('entrega_update', [ 'id' => $e->id ])}}"> 
 			 	<div class="d-flex">                
                     <span class="d-none d-lg-block ">Alterar&nbsp;</span>
                     <i class="icon-arrows-cw"></i>
@@ -134,27 +147,38 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-body">
-		  ID: <span class="id"></span>
+	  	<b>ID:</b>
+		   <span class="id"></span>
           <br>
-          Nº Pedido: <span class="pedido"></span>
+		<b>Nº Pedido:</b>
+			<span class="pedido"></span>
 		  <br>
-		  CEP: <span class="cep"></span>
+		<b>CEP:</b>
+			<span class="cep"></span>
 		  <br>
-		  Rua: <span class="rua"></span>
+		<b>Rua:</b>
+			<span class="rua"></span>
 		  <br>
-          Nº: <span class="numero"></span>
+		<b>Nº:</b>
+			<span class="numero"></span>
           <br>
-          Complemento: <span class="complemento"></span>
+		<b>Complemento:</b>
+			<span class="complemento"></span>
           <br>
-          Bairro: <span class="bairro"></span>
+		<b>Bairro:</b>
+			<span class="bairro"></span>
           <br>
-          Destinatario: <span class="destinatario"></span>
+		<b>Destinatario:</b>
+		  	<span class="destinatario"></span>
           <br>
-          Empresa: <span class="empresa"></span>
+		<b>Empresa:</b>
+			<span class="empresa"></span>
           <br>
-          Cidade: <span class="cidade"></span>
+		<b>Cidade:</b> 
+			<span class="cidade"></span>
           <br>
-		  Motoboy: <span class="motoboy"></span>
+		<b>Motoboy:</b> 
+			<span class="motoboy"></span>
       </div>
     </div>
   </div>
@@ -183,8 +207,10 @@
         var numero = $(this).data('numero');
 		var rua = $(this).data('rua');
 		var cep = $(this).data('cep');
+		var pedido = $(this).data('pedido');
 		var id = $(this).data('id'); 
         $('span.id').text(id); 
+		$('span.pedido').text(pedido); 
 		$('span.cep').text(cep); 
 		$('span.rua').text(rua); 
         $('span.numero').text(numero);
@@ -204,7 +230,9 @@
 		var select = document.getElementById('dados');
 		var value = select.options[select.selectedIndex].value;
 		var id = $(this).data('id');
-		$(location).attr('href', '/entrega/ordenar/'+ id + '/' + value);		
+		$("#var1").val(id);
+		$("#var2").val(value);
+		$("#form").submit();	
 	});
 </script>
 <!------------------->
