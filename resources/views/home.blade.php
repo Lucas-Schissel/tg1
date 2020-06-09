@@ -14,9 +14,9 @@
         <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/03/13/17/26/ecommerce-2140604_960_720.jpg" class="img-fluid" alt="Imagem responsiva">
                 <div class="card-body">
-                    <h5 class="card-title">Planos</h5>
-                        <p class="card-text">Clique aqui e conheça nossas ofertas e escolha a que mais combina com você</p>
-                            <a href="{{route('planos_listar')}}" class="btn btn-primary">Conhecer</a>
+                    <h5 class="card-title">Cadastro de Planos</h5>
+                        <p class="card-text">Clique aqui para que possa cadastrar novos planos para os clientes</p>
+                            <a href="{{route('planos_cadastro')}}" class="btn btn-primary">Conhecer</a>
                 </div>
         </div>
         <div class="card" style="width: 18rem;">
