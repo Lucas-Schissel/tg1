@@ -75,7 +75,8 @@
                     data-conteudo="{{ $e->conteudo}}"
 					data-empresa="{{ $e->empresa->nome}}"   
                     data-cidade="{{ $e->cidade->nome}}"
-                    data-motoboy="{{ $e->motoboy->nome}}"
+					data-motoboy="{{ $e->motoboy->nome}}"
+					data-status="{{ $e->status->nome}}"
 					>
 					{{ $e->cod_pedido }}
 				</a> 
@@ -179,6 +180,9 @@
           <br>
 		<b>Motoboy:</b> 
 			<span class="motoboy"></span>
+			<br>
+		<b>Status:</b> 
+			<span class="status"></span>
       </div>
     </div>
   </div>
@@ -197,6 +201,7 @@
 
 <script>
 	$('.dados').on('click', function(){
+		var status = $(this).data('status');
         var empresa = $(this).data('empresa');
         var motoboy = $(this).data('motoboy');
 		var cidade = $(this).data('cidade');
@@ -221,6 +226,7 @@
 		$('span.cidade').text(cidade); 
 		$('span.motoboy').text(motoboy); 
         $('span.empresa').text(empresa); 
+		$('span.status').text(status); 
 		$('#modal-dados').modal('show');
 	});
 </script>
