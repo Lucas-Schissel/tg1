@@ -107,7 +107,7 @@
 				<div class= "dropdown-divider"></div>
 		
 				<a class= "dropdown-item" href="{{route('motoboy_cadastro')}}"> 
-					<i class="icon-tags"></i>
+				<i class="icon-motorcycle"></i>
 					Motoboy								
 				</a>
 
