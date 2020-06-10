@@ -4,7 +4,7 @@
 
 <div class= "row">
 	<span class="d-block p-2 bg-dark text-center text-white w-100">
-		<h3>Lista de Status</h3>
+		<h4>Lista de Status</h4>
 	</span>
 </div>
 
@@ -43,6 +43,7 @@
 
 	<div class = "col-xl-10 col-lg-10 col-md-10 col-sm-10 col-12">
 
+	<div class="tableFixHead">
 		<table class="table table-bordered table-hover mt-2">
 			<thead class="thead-dark">
 				<tr>
@@ -79,6 +80,8 @@
 			@endforeach
 			</tbody>
 		</table>
+
+	</div>
 		
 	</div>
 
