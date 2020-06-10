@@ -53,7 +53,7 @@
 
 				<div class= "dropdown-divider"></div>
 
-				<a class= "dropdown-item" href="#"> 
+				<a class= "dropdown-item" href="{{route('configuracao')}}"> 
 					<i class="icon-logout"></i>
 					Configuraçoes							
 				</a>

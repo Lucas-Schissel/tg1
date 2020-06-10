@@ -9,6 +9,10 @@ class AppController extends Controller
 {
     function logout(){
 		Auth::logout();
-		return view('auth.login');
+		return redirect()->route('index');
+	}
+
+	function telaConfiguracao(){
+		return view('configuracao');
 	}
 }
