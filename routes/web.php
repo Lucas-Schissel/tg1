@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 //...........Public Rotas..................................................
 Route::get('/index', 'IndexController@apresenta')
 ->name('index');
+
 Auth::routes();
 
 //...........Private Rotas..................................................
@@ -29,6 +30,12 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/logout', 'AppController@logout')
     ->name('logout');
+
+    Route::get('/configuracao', 'AppController@telaConfiguracao')
+    ->name('configuracao');
+
+    Route::get('/dashboard', 'AppController@telaDashboard')
+    ->name('dashboard');
     
     //......................................................................
     //Rotas Aplicaçao para usuarios Administradores.........................

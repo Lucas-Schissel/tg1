@@ -25,7 +25,7 @@ class Entrega extends Model
     }
 
     function status(){
-    	return $this->belongsTo('App\EstatusEntrega', 'id_status', 'id');
+    	return $this->belongsTo('App\StatusEntrega', 'id_status', 'id');
     }
 
 }

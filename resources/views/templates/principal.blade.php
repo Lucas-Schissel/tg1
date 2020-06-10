@@ -53,7 +53,7 @@
 
 				<div class= "dropdown-divider"></div>
 
-				<a class= "dropdown-item" href="#"> 
+				<a class= "dropdown-item" href="{{route('configuracao')}}"> 
 					<i class="icon-logout"></i>
 					Configuraçoes							
 				</a>
@@ -107,7 +107,7 @@
 				<div class= "dropdown-divider"></div>
 		
 				<a class= "dropdown-item" href="{{route('motoboy_cadastro')}}"> 
-					<i class="icon-tags"></i>
+				<i class="icon-motorcycle"></i>
 					Motoboy								
 				</a>
 
@@ -203,7 +203,7 @@
             </button>
 
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class= "dropdown-item view_data" href="#">
+				<a class= "dropdown-item view_data" href="{{route('dashboard')}}">
 					<i class="icon-chart-line"></i>
 					Indicadores
 				</a>

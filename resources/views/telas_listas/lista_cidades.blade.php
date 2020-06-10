@@ -19,8 +19,8 @@
 
 	<div class = "col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 d-flex justify-content-center mt-1">	
 		<select id="dados" class="btn btn-secondary btn-block m-1">			
-			<option value="nome">Cidade</option>
-			<option value="id_estado">Estado</option>
+			<option value="cidade">Cidade</option>
+			<option value="estado">Estado</option>
 		</select>
 		<button class="filtro btn btn-secondary m-1" data-id="asc">              
 			<i class="icon-sort-name-up"></i>	
@@ -125,13 +125,17 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-body">
-          Cidade: <span class="nome"></span>
+		  <b>Cidade:</b> 
+		  	<span class="nome"></span>
           <br>
-		  Sigla: <span class="sigla"></span>
+		  <b>Sigla:</b> 
+		  	<span class="sigla"></span>
 		  <br>
-		  Estado: <span class="estado"></span>
+		  <b>Estado:</b> 
+		  	<span class="estado"></span>
 		  <br>
-		  Regiao: <span class="regiao"></span>
+		  <b>Regiao:</b>
+		  	<span class="regiao"></span>
       </div>
     </div>
   </div>

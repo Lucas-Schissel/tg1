@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Cadastrar Motoby</h5>
                         <p class="card-text">Aqui é possivel cadastrar um novo motoboy a lista de pilotos da nossa equipe.</p>
-                            <a href="{{route('status_listar')}}" class="btn btn-primary">Cadastrar</a>
+                            <a href="{{route('motoboy_cadastro')}}" class="btn btn-primary">Cadastrar</a>
                 </div>
         </div>
         <div class="card" style="width: 18rem;">

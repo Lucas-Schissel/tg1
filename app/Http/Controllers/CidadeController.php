@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Cidade;
 use App\Estado;
@@ -80,13 +81,42 @@ class CidadeController extends Controller
     }
 
     function ordenar($id,$nome){
-        $dados = collect(session('dados')); 
+
+        if($nome === 'estado'){
+            $tabela = 'estados';
+            $nome = 'nome';
+
+            $dados = collect(session('dados'));
+            $valor = DB::table("$tabela")->select('id', 'nome')->get();
+    
+            foreach($dados as $d){
+                foreach($valor as $v){
+                        if($d->id_estado == $v->id){
+                            $d->id_estado = $v->nome;
+                        }
+                
+                }
+            }    
+    
+            if($id == 'asc'){
+                    $cidades = $dados->sortBy('id_estado');
+            }elseif($id == 'desc'){
+                    $cidades = $dados->sortByDesc('id_estado');
+            }   
+
+            return CidadeController::mostrar($cidades);  
+
+        }else if($nome === 'cidade'){
+            $nome = 'nome';
+            $dados = collect(session('dados')); 
             if($id == 'asc'){
                 $cidades = $dados->sortBy($nome);
             }elseif($id == 'desc'){
                 $cidades = $dados->sortByDesc($nome);
-            }         
-        return CidadeController::mostrar($cidades);  
+            } 
+            return CidadeController::mostrar($cidades);    
+        }
+
     }
 
     function buscar(Request $req){
