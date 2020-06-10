@@ -211,6 +211,9 @@ Route::middleware(['auth'])->group(function(){
 
         Route::get('/entrega/cadastro', 'EntregaController@telaCadastro')
         ->name('entrega_cadastro');
+
+        Route::post('/entrega/cadastro/cep', 'EntregaController@buscacep')
+        ->name('entrega_cep');
         
         Route::post('/entrega/cadastro/adicionar', 'EntregaController@adicionar')
         ->name('entrega_add');

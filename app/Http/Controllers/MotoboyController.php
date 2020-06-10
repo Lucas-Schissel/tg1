@@ -19,9 +19,9 @@ class MotoboyController extends Controller
     function adicionar(Request $req){
 
         $req->validate([
-            'nome' => 'required',
-            'cpf' => 'required',
-            'telefone' => 'required',
+            'nome' => 'required|unique:motoboy,nome',
+            'cpf' => 'required|unique:motoboy,cpf',
+            'telefone' => 'required|unique:motoboy,telefone',
         ]);
 
         $nome = $req->input('nome');
@@ -35,12 +35,12 @@ class MotoboyController extends Controller
         
             if ($mot->save()){
                 session([
-                    'mensagem' =>"motoboy: $nome, foi adicionado com sucesso!",
+                    'mensagem' =>"Motoboy: $nome, foi adicionado com sucesso!",
                     's'=>'s'
                 ]);
             } else {
                 session([
-                    'mensagem' =>"motoboy: $nome, nao foi adicionado!",
+                    'mensagem' =>"Motoboy: $nome, nao foi adicionado!",
                     'f'=>'f'
                 ]);
             }
@@ -51,9 +51,9 @@ class MotoboyController extends Controller
     function alterar(Request $req , $id){
 
         $req->validate([
-            'nome' => 'required|unique:motoboy,nome',
-            'cpf' => 'required|unique:motoboy,cpf',
-            'telefone' => 'required|unique:motoboy,telefone',
+            'nome' => 'required',
+            'cpf' => 'required',
+            'telefone' => 'required',
         ]);
 
         $nome = $req->input('nome');
@@ -67,12 +67,12 @@ class MotoboyController extends Controller
 
             if ($mot->save()){
                 session([
-                    'mensagem' =>"motoboy: $nome, alterada com sucesso!",
+                    'mensagem' =>"Motoboy: $nome, alterada com sucesso!",
                     's'=>'s'
                 ]);
             } else {
                 session([
-                    'mensagem' =>"motoboy: $nome, nao foi alterada!",
+                    'mensagem' =>"Motoboy: $nome, nao foi alterada!",
                     'f'=>'f'
                 ]);
             }
@@ -115,13 +115,13 @@ class MotoboyController extends Controller
         $motoboy = motoboy::find($id);                    
             if ($motoboy->delete()){
                 session([
-                    'mensagem' =>"motoboy: $motoboy->nome, foi excluída com sucesso!",
+                    'mensagem' =>"Motoboy: $motoboy->nome, foi excluída com sucesso!",
                     's'=>'s'
                 ]);
             
             } else {
                 session([
-                    'mensagem' =>"motoboy: $motoboy->nome, nao foi excluída!",
+                    'mensagem' =>"Motoboy: $motoboy->nome, nao foi excluída!",
                     'f'=>'f'
                 ]);
             }
