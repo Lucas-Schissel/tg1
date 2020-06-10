@@ -24,7 +24,8 @@ class EntregaController extends Controller
 
     function telaAlteracao($id){
             $entrega = Entrega::find($id);
-            return view("telas_updates.atualiza_entrega", [ "etg" => $entrega ]);
+            $status = StatusEntrega::all();
+            return view("telas_updates.atualiza_entrega", [ 'etg' => $entrega , 'std' => $status ]);
     }
 
     /*
