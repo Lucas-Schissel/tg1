@@ -19,6 +19,34 @@
     .t-email{
         display: none !important;
     }
+    .t-sigla{
+        display: none !important;
+    }
+    .t-estado{
+        display: none !important;
+    }
+    .t-regiao{
+        display: none !important;
+    }
+    .t-motoboy{
+        display: none !important;
+    }
+    .t-empresa{
+        display: none !important;
+    }
+    .t-data{
+        display: none !important;
+    }
+    .t-cep{
+        display: none !important;
+    }
+
+    .t-cpf{
+        display: none !important;
+    }
+    .t-telefone{
+        display: none !important;
+    }
     
 }
 @media(max-width:768px){
@@ -28,6 +56,24 @@
     .t-email{
         display: none !important;
     }    
+    .t-estado{
+        display: none !important;
+    }
+    .t-regiao{
+        display: none !important;
+    }
+    .t-motoboy{
+        display: none !important;
+    }
+    .t-empresa{
+        display: none !important;
+    }
+    .t-cpf{
+        display: none !important;
+    }
+    .t-cidade{
+        display: none !important;
+    }
 }
 @media(max-width:992px){
     .t-cnpj{
@@ -36,6 +82,12 @@
     .t-descricao{
         display: none !important;
     }   
+    .t-regiao{
+        display: none !important;
+    }
+    .t-motoboy{
+        display: none !important;
+    }
     
 }
 @media(max-width:1200px){
@@ -50,7 +102,7 @@
 }
 
 #t-atualizacao > .input-group > .input-group-prepend > span {
-    width: 85px;
+    width: 90px;
 }
 
 .tabela {
@@ -61,4 +113,12 @@
     display: table-cell;
     vertical-align: middle;
 }
+
+.tableFixHead          { overflow-y: auto; height: 400px; }
+.tableFixHead thead th { position: sticky; top: 0; }
+
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 16px; }
+th     { background:#eee; }
 

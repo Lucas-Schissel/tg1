@@ -2,10 +2,10 @@
 @section('conteudo')
     <div class= "row">
         <span class="d-block p-2 bg-dark text-center text-white w-100">
-            <h2>
+            <h3>
                 Cadastro Motoboy
                 <i class="icon-download"></i>
-            </h2>
+            </h3>
         </span>
     </div>
 
@@ -20,13 +20,13 @@
 
                 <form method="post" action="{{ route('motoboy_add') }}">
                 @csrf					
-                        <input class="form-control mt-3 p-4 border border-success rounded" type="text"  name="nome" placeholder="Digite um nome . . ." required>
+                        <input class="form-control mt-1 border border-success rounded" type="text"  name="nome" placeholder="Digite um nome . . ." required>
 
-                        <input class="form-control mt-3 p-4 border border-success rounded" type="text"  name="cpf" placeholder="Digite um cpf . . ." required>
+                        <input class="form-control mt-1 border border-success rounded" type="text"  name="cpf" placeholder="Digite um cpf . . ." required>
 
-                        <input class="form-control mt-3 p-4 border border-success rounded" type="text"  name="telefone" placeholder="Digite um telefone . . ." required>
+                        <input class="form-control mt-1 border border-success rounded" type="text"  name="telefone" placeholder="Digite um telefone . . ." required>
                         
-                        <button class="btn btn-success btn-block mt-3 p-3 "  type="submit">
+                        <button class="btn btn-success btn-block mt-1"  type="submit">
                         Cadastrar
                         <i class="icon-plus-circled"></i>
                         </button>			 
