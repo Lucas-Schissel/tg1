@@ -1,12 +1,13 @@
 @extends('templates.principal')
 @section('conteudo')
+
 <!-- Programar aqui-->
 <div class= "row">
 	<span class="d-block p-2 bg-dark text-center text-white w-100">
-		<h2>
+		<h3>
 			Cadastro de Entrega
 			<i class="icon-download"></i>
-		</h2>
+		</h3>
 	</span>
 </div>
 
@@ -25,7 +26,7 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                         
-                        <input class="form-control m-1 border border-success rounded" type="text"  name="cod_pedido" placeholder="Codigo pedido . . ." required>
+                        <input class="form-control m-1 border border-success rounded" type="text"  name="cod_pedido" placeholder="Codigo pedido . . ." value="{{old('cod_pedido')}}" required>
 
                     </div>
 
@@ -42,11 +43,11 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
 
-                        <input class="form-control m-1 border border-success rounded" type="text"  name="cep" placeholder="Digite um cep . . ." required>
-
+                            <input id="cep" class="form-control m-1 border border-success rounded" type="text" name="cep" placeholder="Digite um cep . . ." value="{{old('cep')}}" required>
+                    
                     </div>
 
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-0">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-0">        
                     </div>
 
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
@@ -65,37 +66,37 @@
 
                     <div class="col-lg-9 col-md-9 col-sm-9 col-12">
 
-                        <input class="form-control m-1 border border-success rounded" type="text"  name="rua" placeholder="Digite uma rua . . ." required>
+                        <input id="rua" class="form-control m-1 border border-success rounded" type="text"  name="rua" placeholder="Digite uma rua . . ." value="{{old('rua')}}" required>
 
                     </div>
 
                     <div class="col-lg-3 col-md-3 col-sm-3 col-12">
 
-                        <input class="form-control m-1 border border-success rounded" type="number"  name="numero" placeholder="Nº . . ." required>
+                        <input class="form-control m-1 border border-success rounded" type="number"  name="numero" placeholder="Nº . . ." value="{{old('numero')}}" required>
 
                     </div>
 
                     <div class="col-lg-9 col-md-9 col-sm-9 col-12">
 
-                        <input class="form-control m-1 border border-success rounded" type="text"  name="bairro" placeholder="Digite um bairro . . ." required>
+                        <input id="bairro" class="form-control m-1 border border-success rounded" type="text"  name="bairro" placeholder="Digite um bairro . . ." value="{{old('bairro')}}" required>
 
                     </div>
 
                     <div class="col-lg-3 col-md-3 col-sm-3 col-12">
 
-                        <input class="form-control m-1 border border-success rounded" type="text"  name="complemento" placeholder="Complemento . . ." required>
+                        <input class="form-control m-1 border border-success rounded" type="text"  name="complemento" placeholder="Complemento . . ." value="{{old('complemento')}}" required>
 
                     </div>
                    
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
 
-                        <input class="form-control m-1 border border-success rounded" type="text"  name="destinatario" placeholder="Digite um destinatario . . ." required>
+                        <input id="cidade" class="form-control m-1 border border-success rounded" type="text"  name="destinatario" placeholder="Digite um destinatario . . ." value="{{old('destinatario')}}" required>
 
                     </div>    
                     
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                         
-                        <input class="form-control m-1 border border-success rounded" type="text"  name="conteudo" placeholder="Digite um conteudo . . ." required>
+                        <input class="form-control m-1 border border-success rounded" type="text"  name="conteudo" placeholder="Digite um conteudo . . ." value="{{old('conteudo')}}" required>
 
                     </div> 
                     
@@ -112,7 +113,7 @@
 					
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                         
-                        <button class="btn btn-success btn-block mt-1 "  type="submit">
+                        <button class="btn btn-success btn-block mt-1"  type="submit">
 					     Cadastrar
 					    <i class="icon-plus-circled"></i>
                         </button>	
@@ -135,6 +136,59 @@
 	<span class="d-block p-2 bg-dark w-100">
 	</span>
 </div>
+
+<script type="text/javascript" >
+
+        $(document).ready(function() {
+
+            function limpa_formulário_cep() {
+
+                $("#rua").val("");
+                $("#bairro").val("");
+                $("#cidade").val("");
+
+            }
+
+            $("#cep").blur(function() {
+
+                var cep = $(this).val().replace(/\D/g, '');
+
+                if (cep != "") {
+
+                    var validacep = /^[0-9]{8}$/;
+
+                    if(validacep.test(cep)) {
+
+                        $("#rua").val("...");
+                        $("#bairro").val("...");
+                        $("#cidade").val("...");
+
+                        $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+
+                            if (!("erro" in dados)) {
+                                $("#rua").val(dados.logradouro);
+                                $("#bairro").val(dados.bairro);
+                                $("#cidade").val(dados.localidade);
+    
+                            }
+                            else {
+                                limpa_formulário_cep();
+                                alert("CEP não encontrado.");
+                            }
+                        });
+                    }
+                    else {
+                        limpa_formulário_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                } 
+                else {
+                    limpa_formulário_cep();
+                }
+            });
+        });
+
+    </script>
 
 <!------------------->
 @endsection

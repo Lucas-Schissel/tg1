@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Entrega;
@@ -9,6 +10,7 @@ use App\Empresa;
 use App\StatusEntrega;
 use App\Motoboy;
 use App\Cidade;
+use Auth;
 
 class EntregaController extends Controller
 {
@@ -24,6 +26,40 @@ class EntregaController extends Controller
             $entrega = Entrega::find($id);
             return view("telas_updates.atualiza_entrega", [ "etg" => $entrega ]);
     }
+
+    /*
+    function buscacep(Request $req){
+        $cod_pedido = $req->input('cod_pedido');
+        $cep = $req->input('cep');
+        $id_empresa = $req->input('id_empresa');
+        $id_cidade = $req->input('id_empresa');
+
+        $req->validate([
+            'cod_pedido' => 'required',
+            'cep' => 'required',
+            'id_empresa' => 'required', 
+            'id_cidade' => 'required', 
+        ]);       
+
+        $info = Http::get("http://viacep.com.br/ws/$cep/json/");
+        
+        $logradouro = $info["logradouro"];
+        $bairro = $info["bairro"];
+        $cidade= $info["localidade"];
+
+        return view('telas_cadastros_cadastro_entrega2',[
+            'cod_pedido' => $cod_pedido ,
+            'cep' => $cep,
+            'id_empresa' => $id_empresa , 
+            'id_cidade' => $id_cidade ,
+            'logradouro' => $logradouro,
+            'bairro' => $bairro,
+            'destinatario' => $cidade,
+            
+            ]
+        );
+    }
+    */
 
     function adicionar(Request $req){
 
