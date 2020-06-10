@@ -19,7 +19,7 @@ class PlanosController extends Controller
     function adicionar(Request $req){
 
         $req->validate([
-            'nome' => 'required',
+            'nome' => 'required|unique:planos,nome',
             'descricao' => 'required',
             'valor' => 'required|numeric',
         ]);

@@ -66,15 +66,15 @@ class EntregaController extends Controller
         $req->validate([
             'cod_pedido' => 'required',
             'id_cidade' => 'required',
-            'cep' => 'required',
+            'cep' => 'required|numeric',
             'rua' => 'required',
-            'numero' => 'required',
+            'numero' => 'required|numeric',
             'complemento' => 'required',
             'bairro' => 'required',          
             'destinatario' => 'required',
             'conteudo' => 'required',
-            'id_empresa' => 'required', 
-            'id_motoboy' => 'required', 
+            'id_empresa' => 'required|numeric', 
+            'id_motoboy' => 'required|numeric', 
         ]);
 
         $cod_pedido = $req->input('cod_pedido');

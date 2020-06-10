@@ -22,15 +22,15 @@
 
 			<form method="post" action="{{ route('empresa_add') }}">
 			@csrf					
-                    <input class="form-control mt-1 border border-success rounded" type="text"  name="nome" placeholder="Digite um nome . . ." required>
+                    <input class="form-control mt-1 border border-success rounded" type="text"  name="nome" placeholder="Digite um nome . . ." value="{{old('nome')}}" required>
 
-                    <input class="form-control mt-1 border border-success rounded" type="text"  name="cnpj" placeholder="Digite um cnpj . . ." required>
+                    <input class="form-control mt-1 border border-success rounded" type="text"  name="cnpj" placeholder="Digite um cnpj . . ." value="{{old('cnpj')}}" required>
 
-                    <input class="form-control mt-1 border border-success rounded" type="text"  name="telefone" placeholder="Digite um telefone . . ." required>
+                    <input class="form-control mt-1 border border-success rounded" type="text"  name="telefone" placeholder="Digite um telefone . . ." value="{{old('telefone')}}" required>
 					
-					<input class="form-control mt-1 border border-success rounded" type="email"  name="email" placeholder="Digite um email . . ." required>
+					<input class="form-control mt-1 border border-success rounded" type="email"  name="email" placeholder="Digite um email . . ." value="{{old('email')}}" required>
 					
-					<input class="form-control mt-1 border border-success rounded" type="password"  name="senha" placeholder="Digite uma senha . . ." required>
+					<input class="form-control mt-1 border border-success rounded" type="password"  name="senha" placeholder="Digite uma senha . . ."  required>
 					
 					<button class="btn btn-success btn-block mt-1 "  type="submit">
 					 Cadastrar
