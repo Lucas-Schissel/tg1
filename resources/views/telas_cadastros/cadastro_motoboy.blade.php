@@ -2,10 +2,10 @@
 @section('conteudo')
     <div class= "row">
         <span class="d-block p-2 bg-dark text-center text-white w-100">
-            <h2>
+            <h3>
                 Cadastro Motoboy
                 <i class="icon-download"></i>
-            </h2>
+            </h3>
         </span>
     </div>
 
