@@ -49,7 +49,7 @@
 				<th>ID</th>
 				<th>Cod Pedido</th>
 				<th class="t-data">Data</th>
-				<th class="t-cep">CEP</th>
+				<th class="t-cep">Status</th>
 				<th class="t-empresa">Cidade</th>
                 <th class="t-empresa">Empresa</th>
                 <th class="t-motoboy">Motoboy</th>
@@ -82,7 +82,7 @@
 				</a> 
 			</td>
 			<td class="t-data">{{ $e->created_at->format('d/m/Y') }}</td>
-			<td class="t-cep">{{ $e->cep }}</td>
+			<td class="t-cep">{{ $e->status->nome }}</td>
 			<td class="t-empresa">{{ $e->cidade->nome}}</td>
             <td class="t-empresa">{{ $e->empresa->nome}}</td>
             <td class="t-motoboy">{{ $e->motoboy->nome}}</td>
