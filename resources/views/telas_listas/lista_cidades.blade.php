@@ -3,7 +3,7 @@
 <!-- Programar aqui-->
 <div class= "row">
 	<span class="d-block p-2 bg-dark text-center text-white w-100">
-		<h3>Lista de Cidades</h3>
+		<h4>Lista de Cidades</h4>
 	</span>
 </div>
 
@@ -31,7 +31,7 @@
 	</div>
 </div>
 
-<div>
+<div class="tableFixHead">
 
 	<table class=" table table-bordered table-hover mt-2">
 		<thead class="thead-dark">

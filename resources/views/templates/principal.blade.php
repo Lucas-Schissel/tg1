@@ -23,19 +23,30 @@
 <script src           = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <div class= "cabecalho container-fluid bg-dark">
-	<div class= "d-flex justify-content-center bg-dark">
+<div class="row">
+
+	<div class= "col-lg-2 col-md-2 col-sm-2 col-12 d-flex flex-column justify-content-center align-items-center text-white">
+		<div>
+			<i class="icon-address-card-o"></i>
+			<span class="text-white">{{Auth::user()->name}}</span>
+		</div>
+	</div>
+
+	<div class= "col-lg-10 col-md-10 col-sm-10 col-12 d-flex flex-column justify-content-center align-items-center">	
+		
+	<div class="row">
 
 		<div class= "dropdown">
 
 			<button class= "btn btn-secondary" type="button" data-toggle="dropdown">
                 <div class="d-flex">                
-                    <span class="d-none d-sm-block ">Aplicaçao&nbsp;</span>
+                    <span class="d-none d-md-block ">Aplicaçao&nbsp;</span>
                     <i class="icon-snowflake-o"></i>
                 </div> 
 			</button>
 							
 			<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class= "dropdown-item" href="{{'home'}}"> 
+				<a class= "dropdown-item" href="{{route('home')}}"> 
 					<i class="icon-home"></i>
 					Menu								
 				</a>
@@ -61,7 +72,7 @@
 
             <button class="btn btn-secondary" type="button" data-toggle="dropdown">
                 <div class="d-flex">                
-                    <span class="d-none d-sm-block ">Cadastros&nbsp;</span>
+                    <span class="d-none d-md-block ">Cadastros&nbsp;</span>
                     <i class="icon-pencil"></i>
                 </div> 
             </button>
@@ -69,21 +80,21 @@
 			<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
 				<a class= "dropdown-item" href="{{route('cidade_cadastro')}}"> 
 					<i class="icon-picture"></i>	
-					Cidades														
+					Cidade														
 				</a>
 
 				<div class= "dropdown-divider"></div>
 
 				<a class= "dropdown-item" href="{{route('empresa_cadastro')}}"> 
 					<i class="icon-industry"></i>	
-					Empresas														
+					Empresa														
 				</a>
 
 				<div class= "dropdown-divider"></div>
 
 				<a class= "dropdown-item" href="{{route('estado_cadastro')}}"> 
 					<i class="icon-user-circle-o"></i>	
-					Estados														
+					Estados													
 				</a>
 
 				<div class= "dropdown-divider"></div>
@@ -104,7 +115,7 @@
 
 				<a class= "dropdown-item" href="{{route('planos_cadastro')}}"> 
 					<i class="icon-file-powerpoint"></i>
-					Planos								
+					Plano								
 				</a>
         
 			</div>
@@ -114,7 +125,7 @@
 
             <button class="btn btn-secondary" type="button" data-toggle="dropdown">
                 <div class="d-flex">                
-                    <span class="d-none d-sm-block ">&nbsp;&nbsp;Listas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span class="d-none d-md-block ">&nbsp;&nbsp;Listas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <i class="icon-table"></i>
                 </div> 			
 			</button>
@@ -137,7 +148,7 @@
 
 				<a class= "dropdown-item" href="{{route('motoboy_listar')}}"> 
 					<i class="icon-motorcycle"></i>
-					Motoboy								
+					Motoboys							
 				</a>
 
 				<div class= "dropdown-divider"></div>
@@ -161,7 +172,7 @@
 
             <button class="btn btn-secondary" type="button" data-toggle="dropdown">
                 <div class="d-flex">                
-                    <span class="d-none d-sm-block ">Entregas&nbsp;</span>
+                    <span class="d-none d-md-block ">Entregas&nbsp;</span>
                     <i class="icon-box"></i>
                 </div> 
             </button>
@@ -186,7 +197,7 @@
 
             <button class="btn btn-secondary" type="button" data-toggle="dropdown">
                 <div class="d-flex">                
-                    <span class="d-none d-sm-block ">Dashboard&nbsp;</span>
+                    <span class="d-none d-md-block ">Dashboard&nbsp;</span>
                     <i class="icon-database"></i>
                 </div> 
             </button>
@@ -201,6 +212,10 @@
 		</div>
 
 	</div>
+
+	</div>
+
+</div>
 </div>
 
 

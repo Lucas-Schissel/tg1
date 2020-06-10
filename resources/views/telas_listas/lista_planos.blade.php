@@ -4,7 +4,7 @@
 
 <div class= "row">
 	<span class="d-block p-2 bg-dark text-center text-white w-100">
-		<h3>Lista de Planos</h3>
+		<h4>Lista de Planos</h4>
 	</span>
 </div>
 
@@ -32,7 +32,7 @@
 	</div>
 </div>
 
-<div class="tabela">
+<div class="tableFixHead">
 
 	<table class="table table-bordered table-hover mt-2">
 		<thead class="thead-dark">
@@ -144,10 +144,12 @@
 
 <script>
 	$('.dados').on('click', function(){
+		var descricao = $(this).data('descricao');
 		var valor = $(this).data('valor');
 		var nome = $(this).data('nome');
 		$('span.nome').text(nome); 
 		$('span.valor').text(valor); 
+		$('span.descricao').text(descricao);
 		$('#modal-dados').modal('show');
 	});
 </script>
