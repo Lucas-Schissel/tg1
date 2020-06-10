@@ -33,6 +33,9 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/configuracao', 'AppController@telaConfiguracao')
     ->name('configuracao');
+
+    Route::get('/dashboard', 'AppController@telaDashboard')
+    ->name('dashboard');
     
     //......................................................................
     //Rotas Aplicaçao para usuarios Administradores.........................

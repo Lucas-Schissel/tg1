@@ -203,7 +203,7 @@
             </button>
 
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class= "dropdown-item view_data" href="#">
+				<a class= "dropdown-item view_data" href="{{route('dashboard')}}">
 					<i class="icon-chart-line"></i>
 					Indicadores
 				</a>
