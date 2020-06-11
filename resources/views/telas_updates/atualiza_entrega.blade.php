@@ -19,7 +19,7 @@
 
         <div  class="col-lg-8 col-md-12 col-sm-12 col-12 mt-4 p-3 border border-success rounded">
 
-			<form method="post" action="#">
+			<form method="post" action="{{route('entrega_alterar' , ['id' => $etg->id])}}">
             @csrf					
                 <div class="row">
 				
@@ -31,7 +31,7 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12 ">
 
-						<select name="id_estado" class="form-control  border border-success rounded" required>
+						<select name="id_status" class="form-control  border border-success rounded" required>
 						<option value="" disabled selected>Escolha uma status:</option>
 							@foreach ($std as $s)
 								<option value="{{ $s->id}}">{{$s->nome}}</option>
