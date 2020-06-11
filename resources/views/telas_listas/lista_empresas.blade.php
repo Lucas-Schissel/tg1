@@ -59,6 +59,8 @@
 					data-email="{{ $e->email}}"
 					data-fone="{{ $e->telefone}}"   
 					data-id="{{ $e->id}}"
+					data-url="{{ $e->url}}"
+					data-token="{{ $e->token}}"
 					>
 					{{ $e->nome }}
 				</a> 
@@ -135,13 +137,23 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-body">
-		  Empresa: <span class="nome"></span>
+		  <b>Empresa:</b>
+		  	<span class="nome"></span>
 		  <br>
-		  CNPJ: <span class="cnpj"></span>
+		  <b>CNPJ:</b> 
+		  	<span class="cnpj"></span>
 		  <br>
-		  Fone: <span class="fone"></span>
+		  <b>Fone:</b>
+		  	<span class="fone"></span>
 		  <br>
-		  Email: <span class="email"></span>
+		  <b>Email:</b>
+			  <span class="email"></span>
+		  <br>
+		  <b>URL:</b> 
+			  <span class="url"></span>
+		  <br>
+		  <b>Token:</b> 
+			<span class="token"></span>
       </div>
     </div>
   </div>
@@ -160,6 +172,8 @@
 
 <script>
 	$('.dados').on('click', function(){
+		var token = $(this).data('token');
+		var url = $(this).data('url');
 		var cnpj = $(this).data('cnpj');
 		var email = $(this).data('email');
 		var fone = $(this).data('fone');
@@ -168,7 +182,9 @@
 		$('span.nome').text(nome); 
 		$('span.cnpj').text(cnpj); 
 		$('span.fone').text(fone); 
-		$('span.email').text(email); 
+		$('span.email').text(email);
+		$('span.url').text(url); 
+		$('span.token').text(token);  
 		$('#modal-dados').modal('show');
 	});
 </script>
