@@ -38,6 +38,9 @@ class EmpresaController extends Controller
             $emp->telefone = $telefone;
             $emp->email = $email;
             $emp->senha = $senha;
+            $emp->url = "";
+            $emp->token = "";
+
 
             if ($emp->save()){
                 session([
@@ -120,6 +123,7 @@ class EmpresaController extends Controller
 
     function listar(){        
         $empresas = Empresa::all(); 
+        $empresas = $empresas->sortBy('nome');
         return EmpresaController::mostrar($empresas);
     }
 
