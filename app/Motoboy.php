@@ -15,4 +15,12 @@ class Motoboy extends Model
     function entregas(){
     	return $this->hasMany('App\Entrega', 'id_motoboy', 'id');
     }
+
+    function disponibilidade(){
+    	return $this->belongsTo('App\Disponibilidade', 'id_disponibilidade', 'id');
+    }
+
+    function liberacao(){
+    	return $this->belongsTo('App\Liberacao', 'id_liberacao', 'id');
+    }
 }

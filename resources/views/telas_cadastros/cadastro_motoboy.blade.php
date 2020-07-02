@@ -26,7 +26,7 @@
 
                         <input class="form-control mt-1 border border-success rounded" type="text"  name="telefone" placeholder="Digite um telefone . . ." required>
                         
-                        <button class="btn btn-success btn-block mt-1"  type="submit">
+                        <button class="btn btn-success btn-block m-1"  type="submit">
                         Cadastrar
                         <i class="icon-plus-circled"></i>
                         </button>			 

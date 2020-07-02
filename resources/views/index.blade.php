@@ -25,10 +25,10 @@
                 <a class="navbar-brand js-scroll-trigger" href="#page-top">Comece a "caçar" logistica</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Sobre</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Serviços</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contato</a></li>
                     </ul>
                 </div>
             </div>
@@ -43,7 +43,9 @@
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 font-weight-light mb-5">Faça Login para aproveitar as funcionalidades</p>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{'home'}}">Login</a>
+                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{route('login_motoboy')}}">Sou Motoboy</a> 
+                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{'login'}}">Sou Administrador</a> 
+                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="{{route('login_empresa')}}">Sou Empresa</a>  
                     </div>
                 </div>
             </div>
@@ -52,11 +54,15 @@
         <section class="page-section bg-primary" id="about">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
+                    <div class="col-lg-12 text-center">
                         <h2 class="text-white mt-0">Temos o que você precisa!</h2>
                         <hr class="divider light my-4" />
                         <p class="text-white-50 mb-4">Registre-se no Caçalog e comece a logistica de suas entregas agora mesmo!</p>
-                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Clique para Registrar!</a>
+                    </div>
+                    <div class="col-lg-12 text-center">
+                        <a class="btn btn-light btn-xl js-scroll-trigger" href="{{route('registro_motoboy')}}">Quero ser Motoboy!</a>
+                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Quero ser Parceiro!</a>
+                        <a class="btn btn-light btn-xl js-scroll-trigger" href="{{route('register')}}">Quero ser Administrador!</a>
                     </div>
                 </div>
             </div>
