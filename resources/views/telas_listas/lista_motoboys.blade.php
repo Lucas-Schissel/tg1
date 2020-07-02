@@ -40,6 +40,7 @@
                     <th>Nome</th>
                     <th class="t-cpf">CPF</th>
                     <th class="t-telefone">Telefone</th>
+                    <th class="t-status">Status</th>
                     <th>Operaçoes</th>
                 </tr>
             </thead>
@@ -61,6 +62,7 @@
                 </td>
                 <td class="t-cpf">{{ $m->cpf }}</td>
                 <td class="t-telefone">{{ $m->telefone }}</td>
+                <td class="t-telefone">{{ $m->disponibilidade->nome }}</td>
                 <td class="d-flex justify-content-center text text-white">
 
                 <a class="btn btn-warning m-1" href="{{route('motoboy_update', [ 'id' => $m->id ])}}"> 

@@ -11,4 +11,5 @@ class Disponibilidade extends Model
 
     protected $table = 'disponibilidade';
     protected $primaryKey = 'id';
+
 }

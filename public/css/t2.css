@@ -1,0 +1,27 @@
+h1,h3{
+    color: #FFFFFF;
+}
+
+input[type=text],input[type=password]{
+    background-color: transparent;
+    border-radius: 5px;
+    border:1px solid #FFFFFF;
+    color: #FFFFFF;
+    font-size: 150%;
+    
+}
+
+::-webkit-input-placeholder{
+  color: darkgrey;
+  font-size: 75%;
+}
+
+body{
+  background-image: url("/imagens/background.jpg");
+  background-size: cover;
+}
+
+.row{
+  border-radius: 5px;
+  border: 1px solid #FFFFFF;
+}
