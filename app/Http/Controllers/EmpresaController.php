@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Empresa;
+use Illuminate\Support\Facades\Hash;
 
 class EmpresaController extends Controller
 {
@@ -32,14 +33,14 @@ class EmpresaController extends Controller
     	$email = $req->input('email');
         $senha = $req->input('senha');
 
-            $emp = new Empresa();
-            $emp->nome = $nome;
-            $emp->cnpj = $cnpj;
-            $emp->telefone = $telefone;
-            $emp->email = $email;
-            $emp->senha = $senha;
-            $emp->url = "";
-            $emp->token = "";
+        $emp = new Empresa();
+        $emp->nome = $nome;
+        $emp->cnpj = $cnpj;
+        $emp->telefone = $telefone;
+        $emp->email = $email;
+        $emp->senha = $senha;
+        $emp->url = "";
+        $emp->token = Hash::make($nome.$cnpj);
 
 
             if ($emp->save()){
