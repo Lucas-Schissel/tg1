@@ -61,7 +61,7 @@
                     </div>
                     <div class="col-lg-12 text-center">
                         <a class="btn btn-light btn-xl js-scroll-trigger" href="{{route('registro_motoboy')}}">Quero ser Motoboy!</a>
-                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Quero ser Parceiro!</a>
+                        <a class="btn btn-light btn-xl js-scroll-trigger" href="{{route('registro_empresa')}}">Quero ser Parceiro!</a>
                         <a class="btn btn-light btn-xl js-scroll-trigger" href="{{route('register')}}">Quero ser Administrador!</a>
                     </div>
                 </div>

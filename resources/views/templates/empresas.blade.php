@@ -29,7 +29,7 @@
 	<div class= "col-lg-2 col-md-2 col-sm-2 col-12 d-flex flex-column justify-content-center align-items-center text-white">
 		<div>
 			<i class="icon-address-card-o"></i>
-			<span class="text-white">{{Auth::user()->name}}</span>
+			<span class="text-white">{{ $value = session()->get('nome')}}</span>
 		</div>
 	</div>
 
@@ -86,13 +86,6 @@
 
 				<div class= "dropdown-divider"></div>
 
-				<a class= "dropdown-item" href="{{route('empresa_cadastro')}}"> 
-					<i class="icon-industry"></i>	
-					Empresa														
-				</a>
-
-				<div class= "dropdown-divider"></div>
-
 				<a class= "dropdown-item" href="{{route('estado_cadastro')}}"> 
 					<i class="icon-user-circle-o"></i>	
 					Estados													
@@ -103,13 +96,6 @@
 				<a class= "dropdown-item" href="{{route('status_cadastro')}}"> 
 					<i class="icon-picture"></i>	
 					Status													
-				</a>
-
-				<div class= "dropdown-divider"></div>
-		
-				<a class= "dropdown-item" href="{{route('motoboy_cadastro')}}"> 
-				<i class="icon-motorcycle"></i>
-					Motoboy								
 				</a>
 
         <div class= "dropdown-divider"></div>
