@@ -15,11 +15,42 @@ use Illuminate\Support\Facades\Auth;
 */
 
 //...........Public Rotas..................................................
+//Pagina Principal.........................................................
+
 Route::get('/index', 'IndexController@apresenta')
 ->name('index');
 
+//.........................................................................
+//Motoboy Public...........................................................
+
+Route::get('/registro/motoboy', 'MotoboyController@telaRegistro')
+->name('registro_motoboy');
+
+Route::post('/motoboy/cadastro/adicionar', 'MotoboyController@adicionar')
+->name('motoboy_add');
+
 Route::get('/login/motoboy', 'MotoboyController@telaLogin')
 ->name('login_motoboy');
+
+Route::post('/motoboy/login', 'AppController@loginMotoboy')
+->name('motoboy_login');
+
+//Empresa Public...........................................................
+
+Route::get('/registro/empresa', 'EmpresaController@telaRegistro')
+->name('registro_empresa');
+
+Route::post('/empresa/cadastro/adicionar', 'EmpresaController@adicionar')
+->name('empresa_add');
+
+Route::get('/login/empresa', 'EmpresaController@telaLogin')
+->name('login_empresa');
+
+Route::post('/empresa/login/', 'AppController@loginEmpresa')
+->name('empresa_login');
+
+//.........................................................................
+//Motoboy Private Rotas....................................................
 
 Route::get('/configuracoes/motoboy', 'MotoboyController@telaConfig')
 ->name('config_motoboy');
@@ -27,26 +58,25 @@ Route::get('/configuracoes/motoboy', 'MotoboyController@telaConfig')
 Route::get('/menu/motoboy', 'MotoboyController@telaMenu')
 ->name('menu_motoboy');
 
-Route::get('/login/empresa', 'EmpresaController@telaLogin')
-->name('login_empresa');
-
-Route::get('/registro/motoboy', 'MotoboyController@telaRegistro')
-->name('registro_motoboy');
-
-Route::get('/registro/empresa', 'EmpresaController@telaRegistro')
-->name('registro_empresa');
-
-Route::post('/motoboy/cadastro/adicionar', 'MotoboyController@adicionar')
-->name('motoboy_add');
-
-Route::post('/motoboy/login', 'AppController@loginMotoboy')
-->name('motoboy_login');
-
 Route::post('/motoboy/disponibilidade', 'MotoboyController@disponibilidade')
 ->name('motoboy_disponibilidade');
 
 Route::get('/logout/motoboy', 'AppController@logoutMotoboy')
 ->name('logout_motoboy');
+
+//..........................................................................
+//..........................................................................
+//Empresa Private Rotas.....................................................
+
+Route::get('/logout/empresa', 'AppController@logoutEmpresa')
+->name('logout_empresa');
+
+Route::get('/menu/empresa', 'EmpresaController@telaMenu')
+->name('menu_empresa');
+
+//..........................................................................
+//..........................................................................
+
 
 Auth::routes();
 
@@ -72,12 +102,6 @@ Route::middleware(['auth'])->group(function(){
     Route::middleware(['admin'])->group(function(){
 
     //Empresa...............................................................
-
-    Route::get('/empresa/cadastro', 'EmpresaController@telaCadastro')
-    ->name('empresa_cadastro');
-    
-    Route::post('/empresa/cadastro/adicionar', 'EmpresaController@adicionar')
-    ->name('empresa_add');
 
     Route::get('/empresa/alterar/{id}', 'EmpresaController@telaAlteracao')
     ->name('empresa_update');
@@ -220,9 +244,7 @@ Route::middleware(['auth'])->group(function(){
     
     
     //Motoboy...............................................................
-    Route::get('/motoboy/cadastro', 'MotoboyController@telaCadastro')
-    ->name('motoboy_cadastro');
-
+  
     Route::get('/motoboy/alterar/{id}', 'MotoboyController@telaAlteracao')
     ->name('motoboy_update');
 

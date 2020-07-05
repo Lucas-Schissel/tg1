@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Motoboy;
+use App\Empresa;
 
 class AppController extends Controller
 {
@@ -66,7 +67,42 @@ class AppController extends Controller
     	}
 	}
 
+	function loginEmpresa(Request $req){
+
+		$req->validate([
+            'email' => 'required|min:10',
+            'senha' => 'required|min:6',
+        ]);
+
+    	$email = $req->input('email');
+		$senha = $req->input('senha');		
+
+		$empresa = Empresa::where('email','=', $email)->first();
+		
+    	if ($empresa and $empresa->senha == $senha){
+
+			$variaveis = ["id" => $empresa->id,"email" => $empresa->email , "nome" => $empresa->nome];
+			session($variaveis);
+			session([
+				'mensagem' =>"Bem Vindo! $empresa->nome",
+				's'=>'s'
+			]);
+    		return redirect()->route('menu_empresa');
+    	} else {
+			session([
+                    'mensagem' =>"Dados de Login, Incorretos!",
+                    'f'=>'f'
+                ]);		
+			return redirect()->route('login_empresa');
+    	}
+	}
+
 	function logoutMotoboy(){
+		session()->forget('nome');
+		return redirect()->route('index');
+	}
+
+	function logoutEmpresa(){
 		session()->forget('nome');
 		return redirect()->route('index');
 	}

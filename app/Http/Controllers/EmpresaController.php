@@ -8,6 +8,23 @@ use Illuminate\Support\Facades\Hash;
 
 class EmpresaController extends Controller
 {
+
+    function telaMenu(){
+        if (session()->has("nome")){
+			return view('menu_empresa');
+		}else{
+            return redirect()->route('login_motoboy');    
+        }    
+    }
+
+    function telaLogin(){
+        return view('telas_login.login_empresa');
+    }
+
+    function telaRegistro(){
+        return view('telas_registros.registro_empresa');
+    }
+
     function telaCadastro(){
         return view('telas_cadastros.cadastro_empresa');
     }
@@ -45,17 +62,17 @@ class EmpresaController extends Controller
 
             if ($emp->save()){
                 session([
-                    'mensagem' =>"Empresa: $nome, foi adicionada com sucesso!",
+                    'mensagem' =>"Empresa: $nome, foi adicionada com sucesso! logue no sistema para desfrutar dos nosso serviços",
                     's'=>'s'
                 ]);
             } else {
                 session([
-                    'mensagem' =>"Empresa: $nome, nao foi adicionada!",
+                    'mensagem' =>"Empresa: $nome, nao foi adicionada!, tente novamente mais tarde.",
                     'f'=>'f'
                 ]);
             }
             
-        return view('telas_cadastros.cadastro_empresa');
+            return redirect()->route('login_empresa');
     }
 
     function alterar(Request $req , $id){
