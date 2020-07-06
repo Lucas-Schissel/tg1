@@ -1,6 +1,6 @@
 # CaçaLog
 
-Esse sistema foi desenolvido como um sistema de logística.
+Esse sistema foi desenvolvido como um sistema de logística.
 
 
 ## Primeiros Passos
@@ -24,7 +24,7 @@ Essa requisição irá retornar todos os dados cadastrados, entre eles o ID da E
 
 ## Acompanhamento do Pedido
 
-Feito isso, o pedido toda vez que for atualizado, ele enviará uma requisição do tipo PATCH para o endereço {endereço da sua aplicacao}/api/vendas/{id_pedido} informando o status da entrega do pedido através do parâmetro 'statusEntrega'. Por exemplo: {"statusEntrega": "Entregue"}
+Feito isso, o pedido toda vez que for atualizado, ele enviará uma requisição do tipo PATCH para o endereço {seu link Ngrok}/api/vendas/{id_pedido} informando o status da entrega do pedido através do parâmetro 'statusEntrega'. Por exemplo: {"statusEntrega": "Entregue"}
 
 
 
