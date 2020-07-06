@@ -54,8 +54,10 @@ class EntregaController extends Controller
             $e->id_empresa = $empresa->id;
 
             //Configurar Status e Motoboy, conforme a necessidade
-            $e->id_status = 1;
-            $e->id_motoboy = 1;            
+            $e->id_status = StatusEntrega::first();
+            $e->id_motoboy = 3;  
+
+            $e->callback = $empresa->url."/api/vendas/".$e->cod_pedido;
 
             $e->save();
 

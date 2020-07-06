@@ -56,7 +56,7 @@ class EmpresaController extends Controller
         $emp->telefone = $telefone;
         $emp->email = $email;
         $emp->senha = $senha;
-        $emp->url = "";
+        $emp->url = $url;
         $emp->token = Hash::make($nome.$cnpj);
 
 
@@ -90,6 +90,7 @@ class EmpresaController extends Controller
         $telefone = $req->input('telefone');
     	$email = $req->input('email');
         $senha = $req->input('senha');
+        $url = $req->input('url');
 
             $emp = Empresa::find($id);
             $emp->nome = $nome;
@@ -97,6 +98,7 @@ class EmpresaController extends Controller
             $emp->telefone = $telefone;
             $emp->email = $email;
             $emp->senha = $senha;
+            $emp->url = $url;
 
             if ($emp->save()){
                 session([

@@ -32,14 +32,19 @@ class EntregaController extends Controller
         $id_status = $req->input('id_status');
         $etg = Entrega::find($id);
         $etg->id_status = $id_status;
-        $etg->save();
 
+        $status = StatusEntrega::find($id_status);
         
         if ($etg->save()){
             session([
                 'mensagem' =>"Entrega: $etg->id, alterada com sucesso!",
                 's'=>'s'
             ]);
+
+            Http::patch($etg->callback, [
+                'statusEntrega' => $status->nome
+            ]);
+
         } else {
             session([
                 'mensagem' =>"Entrega: $etg->id, nao foi alterada!",

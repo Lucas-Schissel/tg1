@@ -31,6 +31,8 @@
 					<input class="form-control mt-1 border border-success rounded" type="email"  name="email" placeholder="Digite um email . . ." value="{{old('email')}}" required>
 					
 					<input class="form-control mt-1 border border-success rounded" type="password"  name="senha" placeholder="Digite uma senha . . ."  required>
+
+					<input class="form-control mt-1 border border-success rounded" type="text"  name="url" placeholder="Digite uma url . . ."  required>
 					
 					<button class="btn btn-success btn-block mt-1 "  type="submit">
 					 Cadastrar

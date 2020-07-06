@@ -61,6 +61,15 @@
         value="{{$emp->senha}}" required>
     </div>
 
+    <div class="input-group border border-secondary rounded mt-1 mr-1">
+        <div class="input-group-prepend">
+            <span class="input-group-text bg-secondary text-white" id="basic-addon1">
+            URL:</span>
+        </div>
+        <input class="form-control" type="text"  name="url" placeholder="Digite uma url..." 
+        value="{{$emp->url}}" required>
+    </div>
+
     <button class="btn btn-success btn-block mt-3 p-3 "  type="submit">
 		Salvar Alteraçoes
 		<i class="icon-plus-circled"></i>
