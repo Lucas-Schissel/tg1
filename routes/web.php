@@ -295,6 +295,9 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/entrega/excluir/{id}', 'EntregaController@excluir')
         ->name('entrega_delete');
 
+        Route::get('/entrega/alocar', 'EntregaController@alocar_motoboys')
+        ->name('alocar_motoboys');
+
 
     //......................................................................
 

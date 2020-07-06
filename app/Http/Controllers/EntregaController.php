@@ -230,4 +230,19 @@ class EntregaController extends Controller
             }
             return redirect()->route('entrega_listar');
     }
+
+    function alocar_motoboys(){
+
+        $apiMotoboy = "site.com/otimiza/";
+        $numeroMotoboys = Motoboy::all()->count();
+        $entregas = Entrega::where('id_motoboy', '=', '0')->get();
+        $i = 0;        
+
+        foreach($entregas as $ent){
+            $enderecos[$i] = "{'cep':$ent->cep,'rua':$ent->rua,'bairro':$ent->bairro}";
+            $i++;
+        }
+
+        $requisicao = Http::post($apiMotoboy.$numeroMotoboys, $enderecos);
+    }
 }
