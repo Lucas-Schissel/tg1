@@ -24,7 +24,7 @@ Essa requisição irá retornar todos os dados cadastrados, entre eles o ID da E
 
 ## Acompanhamento do Pedido
 
-Feito isso, caso queira saber como está o andamento da entrega, é só fazer uma requisição GET, passando o id da entrega recebido anteriormente através do link de {link do ngrok}/api/entregas/{id} e ele retornará uma string com o status da entrega (Ex: Entregue).
+Feito isso, o pedido toda vez que for atualizado, ele enviará uma requisição do tipo PATCH para o endereço {endereço da sua aplicacao}/api/vendas/{id_pedido} informando o status da entrega do pedido através do parâmetro 'statusEntrega'. Por exemplo: {"statusEntrega": "Entregue"}
 
 
 
