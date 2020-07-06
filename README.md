@@ -1,6 +1,6 @@
 # CaçaLog
 
-Esse sistema foi desenolvido como um sistema de logística.
+Esse sistema foi desenvolvido como um sistema de logística.
 
 
 ## Primeiros Passos

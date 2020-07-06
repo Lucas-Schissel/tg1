@@ -122,6 +122,10 @@
                 <i class="icon-plus-circled"></i>
                 Novo			
             </a>
+            <a class="btn btn-secondary m-1 p-1" type="button2" href="{{route('alocar_motoboys')}}">
+                <i class="icon-compass"></i>
+                Alocar Motoboys			
+            </a>
     </span>
 </div>
 
