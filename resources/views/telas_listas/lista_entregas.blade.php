@@ -62,6 +62,10 @@
 		  <tr class="table-light">
 			<td>{{ $e->id }}</td>
 			<td>
+			@php
+				if(isset($e->motoboy->nome)) $motoboy = $e->motoboy->nome;
+				else $motoboy = "Sem motoboy definido";
+			@endphp
 				<a 
 					class="dados btn btn-light btn-block text-left m-1"					
 					data-id ="{{ $e->id}}" 
@@ -75,17 +79,17 @@
                     data-conteudo="{{ $e->conteudo}}"
 					data-empresa="{{ $e->empresa->nome}}"   
                     data-cidade="{{ $e->cidade->nome}}"
-					data-motoboy="{{ $e->motoboy->nome}}"
+					data-motoboy="{{ $motoboy}}"
 					data-status="{{ $e->status->nome}}"
 					>
 					{{ $e->cod_pedido }}
-				</a> 
+				</a>
 			</td>
 			<td class="t-data">{{ $e->created_at->format('d/m/Y') }}</td>
 			<td class="t-cep">{{ $e->status->nome }}</td>
 			<td class="t-empresa">{{ $e->cidade->nome}}</td>
             <td class="t-empresa">{{ $e->empresa->nome}}</td>
-            <td class="t-motoboy">{{ $e->motoboy->nome}}</td>
+            <td class="t-motoboy">{{ $motoboy}}</td>
             <td class="d-flex justify-content-center text text-white">
 
 			 <a class="btn btn-warning m-1" href="{{route('entrega_update', [ 'id' => $e->id ])}}"> 

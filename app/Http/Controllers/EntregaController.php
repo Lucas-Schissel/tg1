@@ -235,14 +235,25 @@ class EntregaController extends Controller
 
         $apiMotoboy = "site.com/otimiza/";
         $numeroMotoboys = Motoboy::all()->count();
+        $primeiroMotoboy = Motoboy::first();
         $entregas = Entrega::where('id_motoboy', '=', '0')->get();
-        $i = 0;        
+        $i = 0;    
+        $referencias = [];    
 
         foreach($entregas as $ent){
+            $referencias[$i] = $ent;
             $enderecos[$i] = "{'cep':$ent->cep,'rua':$ent->rua,'bairro':$ent->bairro}";
             $i++;
         }
 
         $requisicao = Http::post($apiMotoboy.$numeroMotoboys, $enderecos);
+
+        $dados = json_decode($requisicao, 1);
+        
+        $j = 0;    
+        foreach($requisicao as $endereco){
+            $referencias[$j]->id_motoboy = $dados['motoboy']+$primeiroMotoboy->id;  
+            $referencias[$j]->save();       
+        }
     }
 }
