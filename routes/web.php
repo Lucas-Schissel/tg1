@@ -64,6 +64,9 @@ Route::get('/menu/motoboy', 'MotoboyController@telaMenu')
 Route::post('/motoboy/disponibilidade', 'MotoboyController@disponibilidade')
 ->name('motoboy_disponibilidade');
 
+Route::get('/dashboard/motoboy', 'MotoboyController@telaDashboard')
+    ->name('dashboard_motoboy');
+
 Route::get('/logout/motoboy', 'AppController@logoutMotoboy')
 ->name('logout_motoboy');
 
@@ -84,6 +87,12 @@ Route::get('/entrega/empresa', 'EmpresaController@telaEntrega')
 
 Route::post('/entrega/nova/adicionar', 'EntregaController@nova')
     ->name('entrega_adicionar');
+
+Route::get('/entrega/listar/empresa', 'EmpresaController@listarEntregas')
+    ->name('entrega_listar_empresa');
+
+Route::get('/dashboard/empresa', 'EmpresaController@telaDashboard')
+    ->name('dashboard_empresa');
 
 Route::get('/logout/empresa', 'AppController@logoutEmpresa')
 ->name('logout_empresa');

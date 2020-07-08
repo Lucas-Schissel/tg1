@@ -4,10 +4,37 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Empresa;
+use App\Entrega;
 use Illuminate\Support\Facades\Hash;
 
 class EmpresaController extends Controller
 {
+
+    function telaDashboard(){
+    if (session()->has("nome")){
+        $empresa = Empresa::where('nome', '=', session("nome"))->first();
+        $et1 = Entrega::where('id_empresa', '=', "$empresa->id")->where('id_status','=','1')->get();
+        $et1 = count($et1);
+        $et2 = Entrega::where('id_empresa', '=', "$empresa->id")->where('id_status','=','3')->get();
+        $et2 = count($et2);
+        $et3 = Entrega::where('id_empresa', '=', "$empresa->id")->where('id_status','=','4')->get();
+        $et3 = count($et3);
+        $et4 = Entrega::where('id_empresa', '=', "$empresa->id")->where('id_status','=','5')->get();
+        $et4 = count($et4);
+        $et5 = Entrega::where('id_empresa', '=', "$empresa->id")->where('id_status','=','6')->get();
+		$et5 = count($et5);
+
+		return view('dashboard_empresa',[
+            'et1' => $et1,
+            'et2' => $et2,
+            'et3' => $et3,
+            'et4' => $et4,
+            'et5' => $et5,
+        ]);
+    }else{
+        return redirect()->route('login_empresa');    
+    } 
+	}
 
     function telaMenu(){
         if (session()->has("nome")){
@@ -51,6 +78,23 @@ class EmpresaController extends Controller
     function telaAlteracao($id){
             $empresa = Empresa::find($id);
             return view("telas_updates.atualiza_empresa", [ "emp" => $empresa ]);
+    }
+
+    function listarEntregas(){ 
+    if (session()->has("nome")){
+            $email = session('email');
+            $empresa = Empresa::where('email','=', $email)->first();
+            $entregas = Entrega::where('id_empresa','=', $empresa->id)->get();
+        return EmpresaController::mostrarE($entregas);              
+	}else{
+        return redirect()->route('login_empresa');    
+    }              
+    }
+
+    static function mostrarE($array){
+        $entregas = $array;
+        session()->flash('dados',$entregas);
+        return view('lista_entregas_empresa', [ "etg" => $entregas ]);
     }
 
     function adicionar(Request $req){
@@ -164,7 +208,7 @@ class EmpresaController extends Controller
         return view('telas_listas.lista_empresas', [ "emp" => $empresas]);
     }
 
-    function listar(){        
+    private static function listar(){        
         $empresas = Empresa::all(); 
         $empresas = $empresas->sortBy('nome');
         return EmpresaController::mostrar($empresas);
