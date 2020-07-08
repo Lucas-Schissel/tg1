@@ -79,7 +79,7 @@
             </button>
 
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class= "dropdown-item view_data" href="{{route('entrega_cadastro')}}">
+				<a class= "dropdown-item view_data" href="{{route('entrega_empresa')}}">
 					<i class="icon-plus"></i>
 					Adicionar
 				</a>

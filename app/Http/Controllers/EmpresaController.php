@@ -17,6 +17,14 @@ class EmpresaController extends Controller
         }    
     }
 
+    function telaEntrega(){
+        if (session()->has("nome")){
+			return view('empresa_entrega');
+		}else{
+            return redirect()->route('login_empresa');    
+        }    
+    }
+
     function telaConfig(){
         if (session()->has("nome")){
             $email = session('email');

@@ -76,11 +76,14 @@ Route::get('/configuracoes/empresa', 'EmpresaController@telaConfig')
 Route::post('/empresa/alterar/{id}', 'EmpresaController@alterar')
 	->name('empresa_alterar');
 
-Route::get('/logout/empresa', 'AppController@logoutEmpresa')
-->name('logout_empresa');
-
 Route::get('/menu/empresa', 'EmpresaController@telaMenu')
-->name('menu_empresa');
+    ->name('menu_empresa');
+
+Route::get('/entrega/empresa', 'EmpresaController@telaEntrega')
+    ->name('entrega_empresa');
+
+Route::post('/entrega/nova/adicionar', 'EntregaController@nova')
+    ->name('entrega_adicionar');
 
 Route::get('/logout/empresa', 'AppController@logoutEmpresa')
 ->name('logout_empresa');
