@@ -47,114 +47,28 @@
 			</button>
 							
 			<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class= "dropdown-item" href="{{route('home')}}"> 
+				<a class= "dropdown-item" href="{{route('menu_empresa')}}"> 
 					<i class="icon-home"></i>
 					Menu								
 				</a>
 
 				<div class= "dropdown-divider"></div>
 
-				<a class= "dropdown-item" href="{{route('configuracao')}}"> 
+				<a class= "dropdown-item" href="{{route('config_empresa')}}"> 
 					<i class="icon-logout"></i>
 					Configuraçoes							
 				</a>
 
 				<div class= "dropdown-divider"></div>
 
-				<a class= "dropdown-item" href="{{route('logout')}}"> 
+				<a class= "dropdown-item" href="{{route('logout_empresa')}}"> 
 					<i class="icon-logout"></i>
 					Logout								
 				</a>
 			</div>
 
-		</div>
+		</div>							
 					
-		<div class= "dropdown">
-
-            <button class="btn btn-secondary" type="button" data-toggle="dropdown">
-                <div class="d-flex">                
-                    <span class="d-none d-md-block ">Cadastros&nbsp;</span>
-                    <i class="icon-pencil"></i>
-                </div> 
-            </button>
-							
-			<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class= "dropdown-item" href="{{route('cidade_cadastro')}}"> 
-					<i class="icon-picture"></i>	
-					Cidade														
-				</a>
-
-				<div class= "dropdown-divider"></div>
-
-				<a class= "dropdown-item" href="{{route('estado_cadastro')}}"> 
-					<i class="icon-user-circle-o"></i>	
-					Estados													
-				</a>
-
-				<div class= "dropdown-divider"></div>
-
-				<a class= "dropdown-item" href="{{route('status_cadastro')}}"> 
-					<i class="icon-picture"></i>	
-					Status													
-				</a>
-
-        <div class= "dropdown-divider"></div>
-
-				<a class= "dropdown-item" href="{{route('planos_cadastro')}}"> 
-					<i class="icon-file-powerpoint"></i>
-					Plano								
-				</a>
-        
-			</div>
-		</div>
-					
-		<div class="dropdown">
-
-            <button class="btn btn-secondary" type="button" data-toggle="dropdown">
-                <div class="d-flex">                
-                    <span class="d-none d-md-block ">&nbsp;&nbsp;Listas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <i class="icon-table"></i>
-                </div> 			
-			</button>
-
-			<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-				<a class= "dropdown-item" href="{{route('cidade_listar')}}"> 
-					<i class="icon-picture"></i>	
-					Cidades														
-				</a>
-
-				<div class= "dropdown-divider"></div>
-
-				<a class= "dropdown-item" href="{{route('empresa_listar')}}"> 
-					<i class="icon-industry"></i>	
-					Empresas														
-				</a>
-
-				<div class= "dropdown-divider"></div>
-
-				<a class= "dropdown-item" href="{{route('motoboy_listar')}}"> 
-					<i class="icon-motorcycle"></i>
-					Motoboys							
-				</a>
-
-				<div class= "dropdown-divider"></div>
-
-				<a class= "dropdown-item" href="{{route('status_listar')}}"> 
-					<i class="icon-file-powerpoint"></i>
-					Status								
-				</a>
-
-                <div class= "dropdown-divider"></div>
-
-				<a class= "dropdown-item" href="{{route('planos_listar')}}"> 
-					<i class="icon-file-powerpoint"></i>
-					Planos								
-				</a>
-			</div>
-
-		</div>
-
 		<div class="dropdown">
 
             <button class="btn btn-secondary" type="button" data-toggle="dropdown">

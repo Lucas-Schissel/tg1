@@ -25,7 +25,7 @@ class MotoboyController extends Controller
         if (session()->has("nome")){
             $email = session('email');
             $motoboy = Motoboy::where('email','=', $email)->first();
-            return view('config_motoboy', [ "motoboy" => $motoboy ]);
+            return view('config_motoboy', [ "mot" => $motoboy ]);
             
 		}else{
             return redirect()->route('login_motoboy');    
@@ -121,21 +121,29 @@ class MotoboyController extends Controller
     }
 
     function alterar(Request $req , $id){
+    if (session()->has("nome")){
 
         $req->validate([
             'nome' => 'required',
             'cpf' => 'required',
             'telefone' => 'required',
+            'email' => 'required',
+            'senha' => 'required',
+            
         ]);
 
         $nome = $req->input('nome');
         $cpf = $req->input('cpf');
         $telefone = $req->input('telefone');
+        $email = $req->input('email');
+        $senha = $req->input('senha');
 
             $mot = motoboy::find($id);
             $mot->nome = $nome;
             $mot->cpf = $cpf;
             $mot->telefone = $telefone;
+            $mot->email = $email;
+            $mot->senha = $senha;
 
             if ($mot->save()){
                 session([
@@ -149,7 +157,10 @@ class MotoboyController extends Controller
                 ]);
             }
             
-        return redirect()->route('motoboy_listar');
+        return redirect()->route('menu_motoboy');
+    }else{
+        return redirect()->route('login_motoboy');    
+    } 
     }
     
     function ordenar($id,$nome){

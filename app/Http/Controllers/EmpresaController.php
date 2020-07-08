@@ -13,7 +13,18 @@ class EmpresaController extends Controller
         if (session()->has("nome")){
 			return view('menu_empresa');
 		}else{
-            return redirect()->route('login_motoboy');    
+            return redirect()->route('login_empresa');    
+        }    
+    }
+
+    function telaConfig(){
+        if (session()->has("nome")){
+            $email = session('email');
+            $empresa = Empresa::where('email','=', $email)->first();
+            return view('config_empresa', [ "emp" => $empresa ]);
+            
+		}else{
+            return redirect()->route('login_empresa');    
         }    
     }
 
@@ -76,6 +87,7 @@ class EmpresaController extends Controller
     }
 
     function alterar(Request $req , $id){
+    if (session()->has("nome")){
 
         $req->validate([
             'nome' => 'required',
@@ -112,7 +124,10 @@ class EmpresaController extends Controller
                 ]);
             }
             
-        return redirect()->route('empresa_listar');
+        return redirect()->route('menu_empresa');
+    }else{
+        return redirect()->route('login_empresa');    
+    }
     }
 
     function ordenar($id,$nome){

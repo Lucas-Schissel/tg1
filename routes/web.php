@@ -55,6 +55,9 @@ Route::post('/empresa/login/', 'AppController@loginEmpresa')
 Route::get('/configuracoes/motoboy', 'MotoboyController@telaConfig')
 ->name('config_motoboy');
 
+Route::post('/motoboy/alterar/{id}', 'MotoboyController@alterar')
+	->name('motoboy_alterar');
+
 Route::get('/menu/motoboy', 'MotoboyController@telaMenu')
 ->name('menu_motoboy');
 
@@ -67,12 +70,20 @@ Route::get('/logout/motoboy', 'AppController@logoutMotoboy')
 //..........................................................................
 //..........................................................................
 //Empresa Private Rotas.....................................................
+Route::get('/configuracoes/empresa', 'EmpresaController@telaConfig')
+->name('config_empresa');
+
+Route::post('/empresa/alterar/{id}', 'EmpresaController@alterar')
+	->name('empresa_alterar');
 
 Route::get('/logout/empresa', 'AppController@logoutEmpresa')
 ->name('logout_empresa');
 
 Route::get('/menu/empresa', 'EmpresaController@telaMenu')
 ->name('menu_empresa');
+
+Route::get('/logout/empresa', 'AppController@logoutEmpresa')
+->name('logout_empresa');
 
 //..........................................................................
 //..........................................................................
@@ -105,9 +116,6 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/empresa/alterar/{id}', 'EmpresaController@telaAlteracao')
     ->name('empresa_update');
-
-    Route::post('/empresa/alterar/{id}', 'EmpresaController@alterar')
-	->name('empresa_alterar');
 
     Route::get('/empresa/mostrar', 'EmpresaController@mostrar')
     ->name('empresa_mostrar');
@@ -247,9 +255,6 @@ Route::middleware(['auth'])->group(function(){
   
     Route::get('/motoboy/alterar/{id}', 'MotoboyController@telaAlteracao')
     ->name('motoboy_update');
-
-    Route::post('/motoboy/alterar/{id}', 'MotoboyController@alterar')
-	->name('motoboy_alterar');
 
     Route::get('/motoboy/listar', 'MotoboyController@listar')
     ->name('motoboy_listar');

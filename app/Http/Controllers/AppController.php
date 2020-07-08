@@ -98,13 +98,20 @@ class AppController extends Controller
 	}
 
 	function logoutMotoboy(){
+	if (session()->has("nome")){
 		session()->forget('nome');
 		return redirect()->route('index');
+	}else{
+		return redirect()->route('index');    
+	} 
 	}
 
 	function logoutEmpresa(){
+	if (session()->has("nome")){
 		session()->forget('nome');
 		return redirect()->route('index');
+	}else{
+		return redirect()->route('index');    
+	} 
 	}
-
 }
