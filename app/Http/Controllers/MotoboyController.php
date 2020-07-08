@@ -3,12 +3,39 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Entrega;
 use App\Motoboy;
 use App\Disponibilidade;
 
 
 class MotoboyController extends Controller
 {
+    function telaDashboard(){
+        if (session()->has("nome")){
+            $motoboy = Motoboy::where('nome', '=', session("nome"))->first();
+            $et1 = Entrega::where('id_motoboy', '=', "$motoboy->id")->where('id_status','=','1')->get();
+            $et1 = count($et1);
+            $et2 = Entrega::where('id_motoboy', '=', "$motoboy->id")->where('id_status','=','3')->get();
+            $et2 = count($et2);
+            $et3 = Entrega::where('id_motoboy', '=', "$motoboy->id")->where('id_status','=','4')->get();
+            $et3 = count($et3);
+            $et4 = Entrega::where('id_motoboy', '=', "$motoboy->id")->where('id_status','=','5')->get();
+            $et4 = count($et4);
+            $et5 = Entrega::where('id_motoboy', '=', "$motoboy->id")->where('id_status','=','6')->get();
+            $et5 = count($et5);
+    
+            return view('dashboard_motoboy',[
+                'et1' => $et1,
+                'et2' => $et2,
+                'et3' => $et3,
+                'et4' => $et4,
+                'et5' => $et5,
+            ]);
+        }else{
+            return redirect()->route('login_motoboy');    
+        } 
+        }
+
     function telaMenu(){
         if (session()->has("nome")){
             $email = session('email');
@@ -47,6 +74,23 @@ class MotoboyController extends Controller
     function telaAlteracao($id){
             $motoboy = motoboy::find($id);
             return view("telas_updates.atualiza_motoboy", [ "mot" => $motoboy ]);
+    }
+
+    function listarEntregas(){ 
+        if (session()->has("nome")){
+                $email = session('email');
+                $motoboy = Motoboy::where('email','=', $email)->first();
+                $entregas = Entrega::where('id_motoboy','=', $motoboy->id)->get();
+            return MotoboyController::mostrarE($entregas);              
+        }else{
+            return redirect()->route('login_motoboy');    
+        }              
+    }
+
+    static function mostrarE($array){
+        $entregas = $array;
+        session()->flash('dados',$entregas);
+        return view('lista_entregas_motoboy', [ "etg" => $entregas ]);
     }
 
     function disponibilidade(Request $req){

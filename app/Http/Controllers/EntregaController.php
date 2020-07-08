@@ -34,20 +34,24 @@ class EntregaController extends Controller
         $etg->id_status = $id_status;
 
         $status = StatusEntrega::find($id_status);
+        $nome = $status->nome;
+        //dd($nome);
         
         if ($etg->save()){
             session([
-                'mensagem' =>"Entrega: $etg->id, alterada com sucesso!",
+                'mensagem' =>"Status entrega: $etg->id, alterado com sucesso!",
                 's'=>'s'
             ]);
-
-            Http::patch($etg->callback, [
-                'statusEntrega' => $status->nome
-            ]);
+            
+            if(isset($etg->callback)){
+                Http::patch($etg->callback, [
+                    'statusEntrega' => $nome,
+                ]);
+            }
 
         } else {
             session([
-                'mensagem' =>"Entrega: $etg->id, nao foi alterada!",
+                'mensagem' =>"Status entrega: $etg->id, nao foi alterada!",
                 'f'=>'f'
             ]);
         }
@@ -142,7 +146,7 @@ class EntregaController extends Controller
         $destinatario = $req->input('destinatario');
         $conteudo = $req->input('conteudo');
         $id_status = 1;
-        $id_motoboy = EntregaController::numero();
+        //$id_motoboy = EntregaController::numero();
         $id_cidade = 1;
 
             $etg = new Entrega();
@@ -157,7 +161,7 @@ class EntregaController extends Controller
             $etg->id_cidade = $id_cidade;            
             $etg->id_empresa = $empresa->id;
             $etg->id_status = $id_status;
-            $etg->id_motoboy = $id_motoboy;
+            //$etg->id_motoboy = $id_motoboy;
 
             if ($etg->save()){
                 session([
@@ -267,7 +271,9 @@ class EntregaController extends Controller
         $apiMotoboy = "http://webalunos.cacador.ifsc.edu.br:5000/otimiza/";
         $numeroMotoboys = Motoboy::all()->count();
         $primeiroMotoboy = Motoboy::first();
-        $entregas = Entrega::where('id_motoboy', '=', '0')->get();
+        //dd($primeiroMotoboy);
+        $entregas = Entrega::where('id_motoboy', '=', null)->get();
+        //dd($entregas);
         $i = 0;    
         $referencias = [];    
         $enderecos = [];    

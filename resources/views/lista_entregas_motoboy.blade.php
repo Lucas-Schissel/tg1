@@ -1,4 +1,4 @@
-@extends('templates.empresas')
+@extends('templates.motoboys')
 @section('conteudo')
 <!-- Programar aqui-->
 <div class= "row">
@@ -24,6 +24,7 @@
 			<select id="dados" name="dados" class="form-control btn btn-secondary btn-block m-1">
 				<option value="data">Data</option>			
 				<option value="cidade">Cidade</option>
+				<option value="empresa">Empresa</option>
 				<option value="motoboy">Motoboy</option>
 			</select>
 	</div>
@@ -50,6 +51,7 @@
 				<th class="t-data">Data</th>
 				<th class="t-cep">Status</th>
 				<th class="t-empresa">Cidade</th>
+                <th class="t-empresa">Empresa</th>
                 <th class="t-motoboy">Motoboy</th>
 			</tr>
 		</thead>
@@ -85,6 +87,7 @@
 			<td class="t-data">{{ $e->created_at->format('d/m/Y') }}</td>
 			<td class="t-cep">{{ $e->status->nome }}</td>
 			<td class="t-empresa">{{ $e->cidade->nome}}</td>
+            <td class="t-empresa">{{ $e->empresa->nome}}</td>
             <td class="t-motoboy">{{ $motoboy}}</td>
 		  </tr>
 		@endforeach
