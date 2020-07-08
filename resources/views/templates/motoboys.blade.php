@@ -69,106 +69,6 @@
 
 		</div>
 					
-		<div class= "dropdown">
-
-            <button class="btn btn-secondary" type="button" data-toggle="dropdown">
-                <div class="d-flex">                
-                    <span class="d-none d-md-block ">Cadastros&nbsp;</span>
-                    <i class="icon-pencil"></i>
-                </div> 
-            </button>
-							
-			<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class= "dropdown-item" href="#"> 
-					<i class="icon-picture"></i>	
-					Cidade														
-				</a>
-
-				<div class= "dropdown-divider"></div>
-
-				<a class= "dropdown-item" href="#"> 
-					<i class="icon-industry"></i>	
-					Empresa														
-				</a>
-
-				<div class= "dropdown-divider"></div>
-
-				<a class= "dropdown-item" href="#"> 
-					<i class="icon-user-circle-o"></i>	
-					Estados													
-				</a>
-
-				<div class= "dropdown-divider"></div>
-
-				<a class= "dropdown-item" href="#"> 
-					<i class="icon-picture"></i>	
-					Status													
-				</a>
-
-				<div class= "dropdown-divider"></div>
-		
-				<a class= "dropdown-item" href="#"> 
-				<i class="icon-motorcycle"></i>
-					Motoboy								
-				</a>
-
-        <div class= "dropdown-divider"></div>
-
-				<a class= "dropdown-item" href="#"> 
-					<i class="icon-file-powerpoint"></i>
-					Plano								
-				</a>
-        
-			</div>
-		</div>
-					
-		<div class="dropdown">
-
-            <button class="btn btn-secondary" type="button" data-toggle="dropdown">
-                <div class="d-flex">                
-                    <span class="d-none d-md-block ">&nbsp;&nbsp;Listas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <i class="icon-table"></i>
-                </div> 			
-			</button>
-
-			<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-				<a class= "dropdown-item" href="#"> 
-					<i class="icon-picture"></i>	
-					Cidades														
-				</a>
-
-				<div class= "dropdown-divider"></div>
-
-				<a class= "dropdown-item" href="#"> 
-					<i class="icon-industry"></i>	
-					Empresas														
-				</a>
-
-				<div class= "dropdown-divider"></div>
-
-				<a class= "dropdown-item" href="#"> 
-					<i class="icon-motorcycle"></i>
-					Motoboys							
-				</a>
-
-				<div class= "dropdown-divider"></div>
-
-				<a class= "dropdown-item" href="#"> 
-					<i class="icon-file-powerpoint"></i>
-					Status								
-				</a>
-
-                <div class= "dropdown-divider"></div>
-
-				<a class= "dropdown-item" href="#"> 
-					<i class="icon-file-powerpoint"></i>
-					Planos								
-				</a>
-			</div>
-
-		</div>
-
 		<div class="dropdown">
 
             <button class="btn btn-secondary" type="button" data-toggle="dropdown">
@@ -179,13 +79,6 @@
             </button>
 
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class= "dropdown-item view_data" href="#">
-					<i class="icon-plus"></i>
-					Adicionar
-				</a>
-
-				<div class= "dropdown-divider"></div>
-
 				<a class= "dropdown-item" href="#"> 
 					<i class="icon-table"></i>
 					Listar								
