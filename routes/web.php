@@ -59,10 +59,13 @@ Route::post('/motoboy/alterar/{id}', 'MotoboyController@alterar')
 	->name('motoboy_alterar');
 
 Route::get('/menu/motoboy', 'MotoboyController@telaMenu')
-->name('menu_motoboy');
+    ->name('menu_motoboy');
 
 Route::post('/motoboy/disponibilidade', 'MotoboyController@disponibilidade')
-->name('motoboy_disponibilidade');
+    ->name('motoboy_disponibilidade');
+
+Route::get('/entrega/listar/motoboy', 'MotoboyController@listarEntregas')
+    ->name('entrega_listar_motoboy');
 
 Route::get('/dashboard/motoboy', 'MotoboyController@telaDashboard')
     ->name('dashboard_motoboy');
