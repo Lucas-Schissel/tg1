@@ -1,6 +1,8 @@
 @extends('templates.motoboys')
 @section('conteudo')
 
+<div>
+
 <form method="post" action="{{ route('motoboy_disponibilidade')}}">
 @csrf
 
@@ -17,11 +19,15 @@
     </select>    
   </div>
 
-  <button class="btn btn-success btn-block mt-1"  type="submit">
+  <button class="btn btn-success btn-block mt-1 p-1"  type="submit">
 		Salvar Alteraçoes
   </button>  
+  
+  <br>
 
 <form> 
+
+</div>
 
 
 @endsection

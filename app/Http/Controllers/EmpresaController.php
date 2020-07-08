@@ -208,7 +208,7 @@ class EmpresaController extends Controller
         return view('telas_listas.lista_empresas', [ "emp" => $empresas]);
     }
 
-    private static function listar(){        
+    function listar(){        
         $empresas = Empresa::all(); 
         $empresas = $empresas->sortBy('nome');
         return EmpresaController::mostrar($empresas);

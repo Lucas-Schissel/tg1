@@ -47,7 +47,7 @@
 			</button>
 							
 			<div class= "dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class= "dropdown-item" href="#"> 
+				<a class= "dropdown-item" href="{{route('menu_motoboy')}}"> 
 					<i class="icon-home"></i>
 					Menu								
 				</a>
@@ -79,7 +79,7 @@
             </button>
 
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class= "dropdown-item" href="#"> 
+				<a class= "dropdown-item" href="{{route('entrega_listar_motoboy')}}"> 
 					<i class="icon-table"></i>
 					Listar								
 				</a>
