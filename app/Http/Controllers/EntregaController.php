@@ -54,40 +54,7 @@ class EntregaController extends Controller
         return redirect()->route('entrega_listar');
     }
 
-    /*
-    function buscacep(Request $req){
-        $cod_pedido = $req->input('cod_pedido');
-        $cep = $req->input('cep');
-        $id_empresa = $req->input('id_empresa');
-        $id_cidade = $req->input('id_empresa');
-
-        $req->validate([
-            'cod_pedido' => 'required',
-            'cep' => 'required',
-            'id_empresa' => 'required', 
-            'id_cidade' => 'required', 
-        ]);       
-
-        $info = Http::get("http://viacep.com.br/ws/$cep/json/");
-        
-        $logradouro = $info["logradouro"];
-        $bairro = $info["bairro"];
-        $cidade= $info["localidade"];
-
-        return view('telas_cadastros_cadastro_entrega2',[
-            'cod_pedido' => $cod_pedido ,
-            'cep' => $cep,
-            'id_empresa' => $id_empresa , 
-            'id_cidade' => $id_cidade ,
-            'logradouro' => $logradouro,
-            'bairro' => $bairro,
-            'destinatario' => $cidade,
-            
-            ]
-        );
-    }
-    */
-
+   
     function adicionar(Request $req){
 
         $req->validate([
@@ -144,7 +111,71 @@ class EntregaController extends Controller
             }
             
         return redirect()->route('entrega_cadastro');
-    }             
+    } 
+    
+    function nova(Request $req){
+    if (session()->has("nome")){
+
+        $req->validate([
+            'cod_pedido' => 'required',
+            'cep' => 'required|numeric',
+            'estado' => 'required',
+            'cidade' => 'required',
+            'bairro' => 'required',
+            'logradouro' => 'required',          
+            'numero' => 'required|numeric',
+            'complemento' => 'required',                     
+            'destinatario' => 'required',
+            'conteudo' => 'required',
+        ]);
+
+        $empresa = Empresa::where('nome', '=', session("nome"))->first();      
+        
+        $cod_pedido = $req->input('cod_pedido');
+        $cep = $req->input('cep');
+        $estado = $req->input('estado');
+        $cidade = $req->input('cidade');
+        $bairro = $req->input('bairro');      
+    	$rua = $req->input('logradouro');
+        $numero = $req->input('numero');
+        $complemento = $req->input('complemento');       
+        $destinatario = $req->input('destinatario');
+        $conteudo = $req->input('conteudo');
+        $id_status = 1;
+        $id_motoboy = EntregaController::numero();
+        $id_cidade = 1;
+
+            $etg = new Entrega();
+            $etg->cod_pedido = $cod_pedido;
+            $etg->cep = $cep;
+            $etg->bairro = $bairro;
+            $etg->rua = $rua;
+            $etg->numero = $numero;
+            $etg->complemento = $complemento;           
+            $etg->destinatario = $destinatario;
+            $etg->conteudo = $conteudo;
+            $etg->id_cidade = $id_cidade;            
+            $etg->id_empresa = $empresa->id;
+            $etg->id_status = $id_status;
+            $etg->id_motoboy = $id_motoboy;
+
+            if ($etg->save()){
+                session([
+                    'mensagem' =>"Pedido: $cod_pedido foi adicionado com sucesso!",
+                    's'=>'s'
+                ]);
+            } else {
+                session([
+                    'mensagem' =>"Pedido: $cod_pedido nao foi adicionado!",
+                    'f'=>'f'
+                ]);
+            }
+            
+        return redirect()->route('menu_empresa');
+    }else{
+        return redirect()->route('login_empresa');    
+    }
+    }       
 
     function ordenar(Request $req){
         $id = $req->input('var1');
@@ -258,5 +289,11 @@ class EntregaController extends Controller
             $j++;   
         }
         return redirect()->route('entrega_listar');
+    }
+
+    private static function numero(){
+        $numeros = Motoboy::all()->count();
+        $valor = rand(1,$numeros);
+        return $valor;
     }
 }

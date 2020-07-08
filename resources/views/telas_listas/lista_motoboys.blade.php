@@ -54,7 +54,8 @@
                         class="dados btn btn-light btn-block text-left m-1"					
                         data-nome="{{ $m->nome}}" 
                         data-cpf="{{ $m->cpf}}"
-                        data-fone="{{ $m->telefone}}"   
+                        data-fone="{{ $m->telefone}}"
+                        data-email="{{ $m->email}}"     
                         data-id="{{ $m->id}}"
                         >
                         {{ $m->nome }}
@@ -64,13 +65,6 @@
                 <td class="t-telefone">{{ $m->telefone }}</td>
                 <td class="t-telefone">{{ $m->disponibilidade->nome }}</td>
                 <td class="d-flex justify-content-center text text-white">
-
-                <a class="btn btn-warning m-1" href="{{route('motoboy_update', [ 'id' => $m->id ])}}"> 
-                    <div class="d-flex">                
-                        <span class="d-none d-lg-block ">Alterar&nbsp;</span>
-                        <i class="icon-arrows-cw"></i>
-                    </div> 
-                </a>
 
                 <a class="delete btn btn-danger m-1" data-nome="{{ $m->nome}}" data-id="{{ $m->id}}">
                     <div class="d-flex">                
@@ -130,6 +124,9 @@
             <b>Fone:</b>
                 <span class="fone"></span>
             <br>
+            <b>Email:</b>
+                <span class="email"></span>
+            <br>
         </div>
         </div>
     </div>
@@ -151,10 +148,12 @@
             var cpf = $(this).data('cpf');
             var fone = $(this).data('fone');
             var nome = $(this).data('nome');
+            var email = $(this).data('email'); 
             var id = $(this).data('id'); 
             $('span.nome').text(nome); 
             $('span.cpf').text(cpf); 
-            $('span.fone').text(fone); 
+            $('span.fone').text(fone);
+            $('span.email').text(email);  
  
             $('#modal-dados').modal('show');
         });

@@ -79,14 +79,14 @@
             </button>
 
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class= "dropdown-item view_data" href="{{route('entrega_cadastro')}}">
+				<a class= "dropdown-item view_data" href="{{route('entrega_empresa')}}">
 					<i class="icon-plus"></i>
 					Adicionar
 				</a>
 
 				<div class= "dropdown-divider"></div>
 
-				<a class= "dropdown-item" href="{{route('entrega_listar')}}"> 
+				<a class= "dropdown-item" href="{{route('entrega_listar_empresa')}}"> 
 					<i class="icon-table"></i>
 					Listar								
 				</a>
@@ -104,7 +104,7 @@
             </button>
 
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class= "dropdown-item view_data" href="{{route('dashboard')}}">
+				<a class= "dropdown-item view_data" href="{{route('dashboard_empresa')}}">
 					<i class="icon-chart-line"></i>
 					Indicadores
 				</a>
