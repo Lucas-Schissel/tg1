@@ -286,14 +286,23 @@ class EntregaController extends Controller
         }
 
         $requisicao = Http::post($apiMotoboy.$numeroMotoboys, $enderecos);
+        //dd($requisicao);
 
         $dados = json_decode($requisicao, 1);
-        $j = 0;    
-        foreach($dados as $d){
-            $referencias[$j]->id_motoboy = $d['motoboy']+$primeiroMotoboy->id;  
-            $referencias[$j]->save();    
-            $j++;   
+        if(isset($dados)){
+            $j = 0;    
+            foreach($dados as $d){
+                $referencias[$j]->id_motoboy = $d['motoboy']+$primeiroMotoboy->id;  
+                $referencias[$j]->save();    
+                $j++;   
+            }
         }
+
+        session([
+            'mensagem' =>"Falha na API!",
+            'f'=>'f'
+        ]);
+
         return redirect()->route('entrega_listar');
     }
 

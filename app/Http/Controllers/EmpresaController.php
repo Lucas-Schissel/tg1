@@ -112,6 +112,7 @@ class EmpresaController extends Controller
         $telefone = $req->input('telefone');
     	$email = $req->input('email');
         $senha = $req->input('senha');
+        $url = $req->input('url');
 
         $emp = new Empresa();
         $emp->nome = $nome;
@@ -147,6 +148,7 @@ class EmpresaController extends Controller
             'telefone' => 'required',
             'email' => 'required',
             'senha' => 'required',
+            'url',
         ]);
 
         $nome = $req->input('nome');
