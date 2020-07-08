@@ -233,27 +233,30 @@ class EntregaController extends Controller
 
     function alocar_motoboys(){
 
-        $apiMotoboy = "site.com/otimiza/";
+        $apiMotoboy = "http://webalunos.cacador.ifsc.edu.br:5000/otimiza/";
         $numeroMotoboys = Motoboy::all()->count();
         $primeiroMotoboy = Motoboy::first();
         $entregas = Entrega::where('id_motoboy', '=', '0')->get();
         $i = 0;    
         $referencias = [];    
+        $enderecos = [];    
 
         foreach($entregas as $ent){
             $referencias[$i] = $ent;
-            $enderecos[$i] = "{'cep':$ent->cep,'rua':$ent->rua,'bairro':$ent->bairro}";
+            if($i<$entregas->count()-1)$enderecos[$i] = ['cep'=>$ent->cep,'rua'=>$ent->rua,'bairro'=>$ent->bairro];
+            else $enderecos[$i] = ['cep'=>$ent->cep,'rua'=>$ent->rua,'bairro'=>$ent->bairro];
             $i++;
         }
 
         $requisicao = Http::post($apiMotoboy.$numeroMotoboys, $enderecos);
 
         $dados = json_decode($requisicao, 1);
-        
         $j = 0;    
-        foreach($requisicao as $endereco){
-            $referencias[$j]->id_motoboy = $dados['motoboy']+$primeiroMotoboy->id;  
-            $referencias[$j]->save();       
+        foreach($dados as $d){
+            $referencias[$j]->id_motoboy = $d['motoboy']+$primeiroMotoboy->id;  
+            $referencias[$j]->save();    
+            $j++;   
         }
+        return redirect()->route('entrega_listar');
     }
 }
