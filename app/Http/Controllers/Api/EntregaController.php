@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Http;
 use App\Entrega;
 use App\Cidade;
 use App\Empresa;
+use App\StatusEntrega;
 
 class EntregaController extends Controller
 {
@@ -54,7 +55,7 @@ class EntregaController extends Controller
             $e->id_empresa = $empresa->id;
 
             //Configurar Status e Motoboy, conforme a necessidade
-            $e->id_status = StatusEntrega::first();
+            $e->id_status = StatusEntrega::first()->id;
 
             $e->callback = $empresa->url."/api/vendas/".$e->cod_pedido;
             $e->id_motoboy = 0;
