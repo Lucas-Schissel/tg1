@@ -9,7 +9,7 @@ Para ter acesso à API do Caçalog, é necessário primeiramente requisitar um t
 
 ## Como utilizar a API
 
-Após ter o token em mãos, é preciso fazer uma requisição POST para o link {link do ngrok}/api/entregas, passando como parâmetros as seguintes informações:
+Após ter o token em mãos, é preciso fazer uma requisição POST para o link http://webalunos.cacador.ifsc.edu.br/cacalog/public/api/entregas, passando como parâmetros as seguintes informações:
 
 
     "token": "Token gerado",
