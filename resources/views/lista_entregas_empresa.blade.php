@@ -1,4 +1,4 @@
-@extends('templates.principal')
+@extends('templates.empresas')
 @section('conteudo')
 <!-- Programar aqui-->
 <div class= "row">
@@ -24,7 +24,6 @@
 			<select id="dados" name="dados" class="form-control btn btn-secondary btn-block m-1">
 				<option value="data">Data</option>			
 				<option value="cidade">Cidade</option>
-				<option value="empresa">Empresa</option>
 				<option value="motoboy">Motoboy</option>
 			</select>
 	</div>
@@ -51,9 +50,7 @@
 				<th class="t-data">Data</th>
 				<th class="t-cep">Status</th>
 				<th class="t-empresa">Cidade</th>
-                <th class="t-empresa">Empresa</th>
                 <th class="t-motoboy">Motoboy</th>
-                <th>Operaçoes</th>
 			</tr>
 		</thead>
 		
@@ -88,25 +85,7 @@
 			<td class="t-data">{{ $e->created_at->format('d/m/Y') }}</td>
 			<td class="t-cep">{{ $e->status->nome }}</td>
 			<td class="t-empresa">{{ $e->cidade->nome}}</td>
-            <td class="t-empresa">{{ $e->empresa->nome}}</td>
             <td class="t-motoboy">{{ $motoboy}}</td>
-            <td class="d-flex justify-content-center text text-white">
-
-			 <a class="btn btn-warning m-1" href="{{route('entrega_update', [ 'id' => $e->id ])}}"> 
-			 	<div class="d-flex">                
-                    <span class="d-none d-lg-block ">Alterar&nbsp;</span>
-                    <i class="icon-arrows-cw"></i>
-                </div> 
-			 </a>
-
-			 <a class="delete btn btn-danger m-1" data-nome="{{ $e->cod_pedido}}" data-id="{{ $e->id}}">
-			 	<div class="d-flex">                
-                    <span class="d-none d-lg-block ">Excluir&nbsp;</span>
-					<i class="icon-trash-empty"></i>
-                </div> 			 
-			 </a>
-
-			</td>
 		  </tr>
 		@endforeach
 		</tbody>
@@ -122,35 +101,9 @@
                 <i class="icon-left-circled"></i>
                 Voltar		
             </a>
-            <a class="btn btn-secondary m-1 p-1" type="button2" href="{{ route('entrega_cadastro') }}">
-                <i class="icon-plus-circled"></i>
-                Novo			
-            </a>
-            <a class="btn btn-secondary m-1 p-1" type="button2" href="{{route('alocar_motoboys')}}">
-                <i class="icon-compass"></i>
-                Alocar Motoboys			
-            </a>
     </span>
 </div>
 
-<div class="modal fade" id="excluir" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel"></h5>
-        </button>
-      </div>
-      <div class="modal-body">
-		Deseja realmente excluir a entrega: <span class="pedido"></span>?
-        
-      </div>
-      <div class="modal-footer justify-content-center">
-		<a href="#" type="button" class="btn btn-outline-secondary delete-yes">Sim</a>
-		<button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Não</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="modal fade" id="modal-dados" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -195,17 +148,6 @@
     </div>
   </div>
 </div>
-
-
-<script>
-	$('.delete').on('click', function(){
-		var nome = $(this).data('pedido');
-		var id = $(this).data('id'); 
-		$('span.nome').text(nome); 
-		$('a.delete-yes').attr('href', '/entrega/excluir/' +id); 
-		$('#excluir').modal('show');
-	});
-</script>
 
 <script>
 	$('.dados').on('click', function(){

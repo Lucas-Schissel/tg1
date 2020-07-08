@@ -70,13 +70,6 @@
             <td class="t-email">{{ $e->email }}</td>
             <td class="d-flex justify-content-center text text-white">
 
-			 <a class="btn btn-warning m-1" href="{{route('empresa_update', [ 'id' => $e->id ])}}"> 
-			 	<div class="d-flex">                
-                    <span class="d-none d-lg-block ">Alterar&nbsp;</span>
-                    <i class="icon-arrows-cw"></i>
-                </div> 
-			 </a>
-
 			 <a class="delete btn btn-danger m-1" data-nome="{{ $e->nome}}" data-id="{{ $e->id}}">
 			 	<div class="d-flex">                
                     <span class="d-none d-lg-block ">Excluir&nbsp;</span>
@@ -106,10 +99,6 @@
             <a class="btn btn-secondary m-1 p-1" type="button2" href="{{ route('home') }}">
                 <i class="icon-left-circled"></i>
                 Voltar		
-            </a>
-            <a class="btn btn-secondary m-1 p-1" type="button2" href="{{ route('empresa_cadastro') }}">
-                <i class="icon-plus-circled"></i>
-                Novo			
             </a>
     </span>
 </div>

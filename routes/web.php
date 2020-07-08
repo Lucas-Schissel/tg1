@@ -15,8 +15,94 @@ use Illuminate\Support\Facades\Auth;
 */
 
 //...........Public Rotas..................................................
-Route::get('/index', 'IndexController@apresenta')
+//Pagina Principal.........................................................
+
+Route::get('/', 'IndexController@apresenta')
 ->name('index');
+
+//.........................................................................
+//Motoboy Public...........................................................
+
+Route::get('/registro/motoboy', 'MotoboyController@telaRegistro')
+->name('registro_motoboy');
+
+Route::post('/motoboy/cadastro/adicionar', 'MotoboyController@adicionar')
+->name('motoboy_add');
+
+Route::get('/login/motoboy', 'MotoboyController@telaLogin')
+->name('login_motoboy');
+
+Route::post('/motoboy/login', 'AppController@loginMotoboy')
+->name('motoboy_login');
+
+//Empresa Public...........................................................
+
+Route::get('/registro/empresa', 'EmpresaController@telaRegistro')
+->name('registro_empresa');
+
+Route::post('/empresa/cadastro/adicionar', 'EmpresaController@adicionar')
+->name('empresa_add');
+
+Route::get('/login/empresa', 'EmpresaController@telaLogin')
+->name('login_empresa');
+
+Route::post('/empresa/login/', 'AppController@loginEmpresa')
+->name('empresa_login');
+
+//.........................................................................
+//Motoboy Private Rotas....................................................
+
+Route::get('/configuracoes/motoboy', 'MotoboyController@telaConfig')
+->name('config_motoboy');
+
+Route::post('/motoboy/alterar/{id}', 'MotoboyController@alterar')
+	->name('motoboy_alterar');
+
+Route::get('/menu/motoboy', 'MotoboyController@telaMenu')
+    ->name('menu_motoboy');
+
+Route::post('/motoboy/disponibilidade', 'MotoboyController@disponibilidade')
+    ->name('motoboy_disponibilidade');
+
+Route::get('/entrega/listar/motoboy', 'MotoboyController@listarEntregas')
+    ->name('entrega_listar_motoboy');
+
+Route::get('/dashboard/motoboy', 'MotoboyController@telaDashboard')
+    ->name('dashboard_motoboy');
+
+Route::get('/logout/motoboy', 'AppController@logoutMotoboy')
+->name('logout_motoboy');
+
+//..........................................................................
+//..........................................................................
+//Empresa Private Rotas.....................................................
+Route::get('/configuracoes/empresa', 'EmpresaController@telaConfig')
+->name('config_empresa');
+
+Route::post('/empresa/alterar/{id}', 'EmpresaController@alterar')
+	->name('empresa_alterar');
+
+Route::get('/menu/empresa', 'EmpresaController@telaMenu')
+    ->name('menu_empresa');
+
+Route::get('/entrega/empresa', 'EmpresaController@telaEntrega')
+    ->name('entrega_empresa');
+
+Route::post('/entrega/nova/adicionar', 'EntregaController@nova')
+    ->name('entrega_adicionar');
+
+Route::get('/entrega/listar/empresa', 'EmpresaController@listarEntregas')
+    ->name('entrega_listar_empresa');
+
+Route::get('/dashboard/empresa', 'EmpresaController@telaDashboard')
+    ->name('dashboard_empresa');
+
+Route::get('/logout/empresa', 'AppController@logoutEmpresa')
+->name('logout_empresa');
+
+//..........................................................................
+//..........................................................................
+
 
 Auth::routes();
 
@@ -43,17 +129,8 @@ Route::middleware(['auth'])->group(function(){
 
     //Empresa...............................................................
 
-    Route::get('/empresa/cadastro', 'EmpresaController@telaCadastro')
-    ->name('empresa_cadastro');
-    
-    Route::post('/empresa/cadastro/adicionar', 'EmpresaController@adicionar')
-    ->name('empresa_add');
-
     Route::get('/empresa/alterar/{id}', 'EmpresaController@telaAlteracao')
     ->name('empresa_update');
-
-    Route::post('/empresa/alterar/{id}', 'EmpresaController@alterar')
-	->name('empresa_alterar');
 
     Route::get('/empresa/mostrar', 'EmpresaController@mostrar')
     ->name('empresa_mostrar');
@@ -190,17 +267,9 @@ Route::middleware(['auth'])->group(function(){
     
     
     //Motoboy...............................................................
-    Route::get('/motoboy/cadastro', 'MotoboyController@telaCadastro')
-    ->name('motoboy_cadastro');
-
-    Route::post('/motoboy/cadastro/adicionar', 'MotoboyController@adicionar')
-    ->name('motoboy_add');
-
+  
     Route::get('/motoboy/alterar/{id}', 'MotoboyController@telaAlteracao')
     ->name('motoboy_update');
-
-    Route::post('/motoboy/alterar/{id}', 'MotoboyController@alterar')
-	->name('motoboy_alterar');
 
     Route::get('/motoboy/listar', 'MotoboyController@listar')
     ->name('motoboy_listar');
@@ -245,6 +314,9 @@ Route::middleware(['auth'])->group(function(){
     
         Route::get('/entrega/excluir/{id}', 'EntregaController@excluir')
         ->name('entrega_delete');
+
+        Route::get('/entrega/alocar', 'EntregaController@alocar_motoboys')
+        ->name('alocar_motoboys');
 
 
     //......................................................................

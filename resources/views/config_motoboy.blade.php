@@ -1,17 +1,7 @@
-@extends('templates.principal')
+@extends('templates.motoboys')
 @section('conteudo')
-<!-- Programar aqui-->
 
-<div class= "row">
-	<span class="d-block p-2 bg-dark text-center text-white w-100">
-		<h5>
-			Atualizaçao de Cadastro
-			<i class="icon-download"></i>
-		</h5>
-	</span>
-</div>
-
-<form method="post" action="{{ route('empresa_alterar' , ['id' => $emp->id]) }}">
+<form method="post" action="{{ route('motoboy_alterar' , ['id' => $mot->id]) }}">
 @csrf
 
 <div id="t-atualizacao" class="container-fluid border border-secondary rounded mt-1 p-1">    	
@@ -22,16 +12,16 @@
             Nome:</span>
         </div>
         <input class="form-control" type="text" name="nome" placeholder="Digite um nome..." 
-        value="{{$emp->nome}}" required>
+        value="{{$mot->nome}}" required>
     </div>
 
     <div class="input-group border border-secondary rounded mt-1 mr-1">
         <div class="input-group-prepend">
             <span class="input-group-text bg-secondary text-white" id="basic-addon1">
-            CNPJ:</span>
+            CPF:</span>
         </div>
-        <input class="form-control" type="text"  name="cnpj" placeholder="Digite um cnpj..." 
-        value="{{ $emp->cnpj}}" required>
+        <input class="form-control" type="text"  name="cpf" placeholder="Digite um cpf..." 
+        value="{{ $mot->cpf}}" required>
     </div>
 
     <div class="input-group border border-secondary rounded mt-1 mr-1">
@@ -40,7 +30,7 @@
             Telefone:</span>
         </div>
         <input class="form-control" type="text"  name="telefone" placeholder="Digite um telefone..." 
-        value="{{ $emp->telefone}}" required>
+        value="{{ $mot->telefone}}" required>
     </div>
 
     <div class="input-group border border-secondary rounded mt-1 mr-1">
@@ -48,8 +38,8 @@
             <span class="input-group-text bg-secondary text-white" id="basic-addon1">
             Email:</span>
         </div>
-        <input class="form-control" type="email"  name="email" placeholder="Digite um email..." 
-        value="{{$emp->email}}" required>
+        <input class="form-control" type="text"  name="email" placeholder="Digite um email..." 
+        value="{{ $mot->email}}" required>
     </div>
 
     <div class="input-group border border-secondary rounded mt-1 mr-1">
@@ -57,22 +47,12 @@
             <span class="input-group-text bg-secondary text-white" id="basic-addon1">
             Senha:</span>
         </div>
-        <input class="form-control" type="password"  name="senha" placeholder="Digite uma senha..." 
-        value="{{$emp->senha}}" required>
-    </div>
-
-    <div class="input-group border border-secondary rounded mt-1 mr-1">
-        <div class="input-group-prepend">
-            <span class="input-group-text bg-secondary text-white" id="basic-addon1">
-            URL:</span>
-        </div>
-        <input class="form-control" type="text"  name="url" placeholder="Digite uma url..." 
-        value="{{$emp->url}}" required>
+        <input class="form-control" type="text"  name="senha" placeholder="Digite uma senha..." 
+        value="{{ $mot->senha}}" required>
     </div>
 
     <button class="btn btn-success btn-block mt-3 p-3 "  type="submit">
 		Salvar Alteraçoes
-		<i class="icon-plus-circled"></i>
     </button>  
 
 </div>
@@ -82,5 +62,5 @@
 	<span class="d-block p-2 bg-dark w-100">
 	</span>
 </div>
-<!------------------->
+
 @endsection

@@ -11,7 +11,7 @@
 	</span>
 </div>
 
-<form method="post" action="{{ route('cidade_alterar' , ['id' => $cde->id]) }}">
+<form method="post" action="{{route('cidade_alterar')}}">
 @csrf
 
 <div id="t-atualizacao" class="container-fluid border border-secondary rounded mt-1 p-1">    	
